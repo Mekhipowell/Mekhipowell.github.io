@@ -188,7 +188,13 @@ a:hover {
     display: block;
     transition: transform 0.3s ease;
 }
-
+/* NASTRAN IMAGE ADJUSTMENT */
+.project-image img.nastran-image {
+    object-fit: contain;
+    object-position: center;
+    padding: 15px;
+    background: #f3f3f3;
+}
 .project-image:hover img {
     transform: scale(1.03);
 }
@@ -421,11 +427,12 @@ footer {
 
         <!-- PROJECT 02 -->
         <article class="project">
-             <div class="project-image">
-             <img src="nastran-1.webp"
-             alt="Aircraft Wing Spar NASTRAN Finite Element Analysis">
+            <div class="project-image">
+    <img src="nastran-1.webp"
+         alt="Aircraft Wing Spar NASTRAN Finite Element Analysis"
+         class="nastran-image">
 
-             <span class="project-number">02</span>
+    <span class="project-number">02</span>
 </div>
 
             <h3>Aircraft Wing Spar Analysis</h3>
