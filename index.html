@@ -2,53 +2,457 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mekhi Powell | Mechanical Engineering</title>
-    <style>
-        body {
-            background: #f7f7f7;
-            color: #222;
-            font-family: Arial, sans-serif;
-            max-width: 1000px;
-            margin: 80px auto;
-            padding: 20px;
-            line-height: 1.6;
-        }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mekhi Powell | Mechanical Engineering</title>
 
-        h1 { font-size: 48px; }
-        h2 { margin-top: 50px; }
+<style>
+/* GENERAL */
+:root {
+    --text: #252525;
+    --muted: #717171;
+    --border: #e6e6e6;
+    --surface: #f3f3f3;
+}
 
-        a { color: #333; }
-    </style>
+* {
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    margin: 0;
+    background: #ffffff;
+    color: var(--text);
+    font-family: Arial, Helvetica, sans-serif;
+    line-height: 1.7;
+}
+
+.container {
+    width: 88%;
+    max-width: 1150px;
+    margin: auto;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+/* NAVIGATION */
+header {
+    padding: 35px 0;
+}
+
+nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+}
+
+.logo {
+    font-size: 14px;
+    font-weight: 600;
+    letter-spacing: 3px;
+}
+
+.nav-links {
+    display: flex;
+    gap: 35px;
+}
+
+.nav-links a {
+    font-size: 13px;
+    letter-spacing: 1px;
+}
+
+a:hover {
+    color: #888;
+}
+
+/* INTRODUCTION */
+.hero {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 90px;
+    align-items: center;
+    padding: 100px 0 135px;
+}
+
+.portrait {
+    width: 100%;
+    aspect-ratio: 4 / 5;
+    max-height: 600px;
+    object-fit: cover;
+    object-position: center;
+    border-radius: 5px;
+    display: block;
+}
+
+.eyebrow {
+    font-size: 12px;
+    letter-spacing: 2.4px;
+    text-transform: uppercase;
+    color: var(--muted);
+    line-height: 1.8;
+}
+
+.hero h1 {
+    font-size: clamp(40px, 5vw, 62px);
+    font-weight: 500;
+    letter-spacing: 1px;
+    line-height: 1.2;
+    margin: 30px 0 40px;
+}
+
+.hero p {
+    font-size: 15px;
+    color: #505050;
+    line-height: 1.9;
+    margin-bottom: 20px;
+}
+
+.text-link {
+    display: inline-block;
+    margin-top: 20px;
+    font-size: 13px;
+    border-bottom: 1px solid #252525;
+    padding-bottom: 5px;
+}
+
+/* PROJECTS */
+.projects {
+    padding: 35px 0 120px;
+}
+
+.section-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: end;
+    border-bottom: 1px solid var(--border);
+    padding-bottom: 22px;
+    margin-bottom: 45px;
+}
+
+.section-top h2 {
+    font-size: 30px;
+    font-weight: 500;
+    margin: 0;
+}
+
+.section-top span {
+    color: var(--muted);
+    font-size: 13px;
+}
+
+.project-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 60px 30px;
+}
+
+.project-image {
+    width: 100%;
+    aspect-ratio: 4 / 3;
+    background: var(--surface);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    border-radius: 4px;
+    overflow: hidden;
+}
+
+.placeholder {
+    color: #a2a2a2;
+    font-size: 12px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+}
+
+.project-number {
+    position: absolute;
+    top: 20px;
+    left: 22px;
+    color: #999;
+    font-size: 12px;
+}
+
+.project h3 {
+    margin: 20px 0 4px;
+    font-size: 20px;
+    font-weight: 500;
+}
+
+.project p {
+    margin: 0;
+    color: var(--muted);
+    font-size: 13px;
+}
+
+/* RESUME */
+.resume {
+    padding: 65px 0 100px;
+    border-top: 1px solid var(--border);
+}
+
+.resume h2 {
+    font-size: 30px;
+    font-weight: 500;
+}
+
+.resume p {
+    color: var(--muted);
+    max-width: 650px;
+    font-size: 15px;
+}
+
+/* FOOTER */
+footer {
+    border-top: 1px solid var(--border);
+    padding: 30px 0 45px;
+}
+
+.footer-content {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+    color: var(--muted);
+    font-size: 12px;
+}
+
+/* MOBILE RESPONSIVENESS */
+@media (max-width: 768px) {
+
+    .container {
+        width: 90%;
+    }
+
+    header {
+        padding: 25px 0;
+    }
+
+    nav {
+        flex-wrap: wrap;
+    }
+
+    .logo {
+        font-size: 12px;
+    }
+
+    .nav-links {
+        gap: 17px;
+    }
+
+    .nav-links a {
+        font-size: 12px;
+    }
+
+    .hero {
+        grid-template-columns: 1fr;
+        gap: 40px;
+        padding: 45px 0 90px;
+    }
+
+    .portrait {
+        max-height: 550px;
+    }
+
+    .hero h1 {
+        font-size: 42px;
+        margin: 18px 0 25px;
+    }
+
+    .projects {
+        padding: 20px 0 80px;
+    }
+
+    .project-grid {
+        grid-template-columns: 1fr;
+        gap: 40px;
+    }
+
+    .section-top h2 {
+        font-size: 25px;
+    }
+
+    .section-top span {
+        font-size: 11px;
+    }
+
+    .footer-content {
+        flex-direction: column;
+        gap: 5px;
+    }
+}
+</style>
 </head>
+
 <body>
 
-    <h1>Mekhi Powell</h1>
-    <h3>Mechanical Engineering Student</h3>
+<!-- NAVIGATION -->
+<header>
+    <div class="container">
+        <nav>
+            <a href="#" class="logo">MEKHI POWELL</a>
+
+            <div class="nav-links">
+                <a href="#about">About</a>
+                <a href="#projects">Projects</a>
+                <a href="#resume">Résumé</a>
+            </div>
+        </nav>
+    </div>
+</header>
+
+<main>
+
+<!-- ABOUT / INTRODUCTION -->
+<section class="container hero" id="about">
+
+    <div>
+        <img
+            src="Smiling%20Man%20by%20the%20Waterfront.png"
+            alt="Portrait of Mekhi Powell"
+            class="portrait"
+        >
+    </div>
+
+    <div class="hero-content">
+
+        <div class="eyebrow">
+            Senior Mechanical Engineering Student<br>
+            Florida Polytechnic University
+        </div>
+
+        <h1>MEKHI POWELL</h1>
+
+        <p>
+            Hi, I'm Mekhi! I'm a Mechanical Engineering
+            student at Florida Polytechnic University,
+            graduating in May 2027.
+        </p>
+
+        <p>
+            I enjoy building things, solving problems,
+            and understanding how things work.
+            My engineering interests include mechanical
+            design, structural analysis, manufacturing,
+            and product development.
+        </p>
+
+        <p>
+            Outside of engineering, I enjoy automotive
+            culture, cycling, photography, and spending
+            time creating things.
+        </p>
+
+        <a href="#projects" class="text-link">
+            Explore My Work &darr;
+        </a>
+
+    </div>
+</section>
+
+<!-- PROJECT GALLERY -->
+<section class="container projects" id="projects">
+
+    <div class="section-top">
+        <h2>Selected Projects</h2>
+        <span>Engineering Portfolio</span>
+    </div>
+
+    <div class="project-grid">
+
+        <!-- PROJECT 01 -->
+        <article class="project">
+            <div class="project-image">
+                <span class="project-number">01</span>
+                <span class="placeholder">Project Image</span>
+            </div>
+
+            <h3>Charpy Impact Tester</h3>
+            <p>
+                Mechanical Design / SolidWorks /
+                Prototyping
+            </p>
+        </article>
+
+        <!-- PROJECT 02 -->
+        <article class="project">
+            <div class="project-image">
+                <span class="project-number">02</span>
+                <span class="placeholder">Project Image</span>
+            </div>
+
+            <h3>Aircraft Wing Spar Analysis</h3>
+            <p>
+                Finite Element Analysis /
+                Simcenter NASTRAN
+            </p>
+        </article>
+
+        <!-- PROJECT 03 -->
+        <article class="project">
+            <div class="project-image">
+                <span class="project-number">03</span>
+                <span class="placeholder">Project Image</span>
+            </div>
+
+            <h3>Manatee Tag Release & Recovery</h3>
+            <p>
+                Senior Capstone /
+                Mechanical Design
+            </p>
+        </article>
+
+        <!-- PROJECT 04 -->
+        <article class="project">
+            <div class="project-image">
+                <span class="project-number">04</span>
+                <span class="placeholder">Project Image</span>
+            </div>
+
+            <h3>Aerodynamic Drag Testing</h3>
+            <p>
+                Experimental Testing /
+                Instrumentation
+            </p>
+        </article>
+
+    </div>
+</section>
+
+<!-- RESUME SECTION -->
+<section class="container resume" id="resume">
+
+    <h2>Résumé</h2>
 
     <p>
-        Florida Polytechnic University |
-        Class of 2027
+        My experience includes mechanical design,
+        CAD modeling, structural analysis,
+        prototyping, and engineering education.
     </p>
 
-    <h2>About Me</h2>
     <p>
-        Interested in mechanical design,
-        structural analysis, manufacturing,
-        and product development.
+        Downloadable résumé coming soon.
     </p>
 
-    <h2>Engineering Projects</h2>
-    <ul>
-        <li>Charpy Impact Tester</li>
-        <li>Aircraft Wing Spar FEA</li>
-        <li>Manatee Tag Release & Recovery</li>
-        <li>Aerodynamic Drag Testing</li>
-    </ul>
+</section>
 
-    <h2>Resume</h2>
-    <p>Resume coming soon.</p>
+</main>
+
+<!-- FOOTER -->
+<footer>
+    <div class="container footer-content">
+        <span>© 2026 Mekhi Powell</span>
+        <span>Mechanical Engineering · Florida Polytechnic University</span>
+    </div>
+</footer>
 
 </body>
 </html>
