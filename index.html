@@ -200,6 +200,13 @@ a:hover {
     object-fit: cover;
     object-position: 35% center;
 }
+    .project-image.fpv-fit img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    object-position: center;
+    background: #e9e9e9; /* optional, helps fill empty space nicely */
+}
 .project-image:hover img {
     transform: scale(1.03);
 }
@@ -481,20 +488,16 @@ footer {
     
 <!-- PROJECT 05 -->
 <article class="project">
-    <div class="project-image">
-        <img src="Quadcopter Frame Strain Analysis.png"
-             alt="FPV drone frame finite element analysis">
-
+    <div class="project-image fpv-fit">
+        <img src="fpv-drone-1.webp"
+             alt="FPV Drone Frame Optimization">
         <span class="project-number">05</span>
     </div>
 
     <h3>FPV Drone Frame Optimization</h3>
-    <p>
-        SolidWorks / Finite Element Analysis /
-        Structural Optimization
-    </p>
+    <p>SolidWorks / Finite Element Analysis / Structural Optimization</p>
 </article>
-
+        
 <!-- PROJECT 06 -->
 <article class="project">
     <div class="project-image">
