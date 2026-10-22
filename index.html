@@ -247,6 +247,98 @@ a:hover {
     font-size: 13px;
 }
 
+/* EXPERIENCE */
+.experience {
+    padding: 40px 0 110px;
+}
+
+.experience-item {
+    display: grid;
+    grid-template-columns: 45px minmax(0, 1fr) 140px;
+    gap: 25px;
+    align-items: start;
+    padding: 35px 0;
+    border-bottom: 1px solid var(--border);
+}
+
+.experience-number {
+    display: inline-block;
+    width: fit-content;
+    padding: 5px 11px;
+    background: #f3f3f3;
+    border-radius: 3px;
+    color: #252525;
+    font-size: 12px;
+    font-weight: 600;
+}
+
+.experience-info {
+    max-width: 700px;
+    min-width: 0;
+}
+
+.experience-item h3 {
+    font-family: 'EB Garamond', Georgia, serif;
+    font-size: 25px;
+    font-weight: 500;
+    margin: 0 0 8px;
+}
+
+.experience-company {
+    font-size: 14px;
+    color: #444;
+    margin: 0 0 14px;
+}
+
+.experience-description {
+    font-size: 14px;
+    line-height: 1.8;
+    color: #777;
+    margin: 0;
+}
+
+.experience-date {
+    text-align: right;
+    white-space: nowrap;
+    font-size: 13px;
+    color: #777;
+    padding-top: 6px;
+}
+
+/* MOBILE */
+@media (max-width: 768px) {
+    .experience {
+        padding: 20px 0 70px;
+    }
+
+    .experience-item {
+        grid-template-columns: 38px minmax(0, 1fr);
+        gap: 15px;
+        padding: 26px 0;
+    }
+
+    .experience-date {
+        grid-column: 2;
+        grid-row: 1;
+        text-align: left;
+        padding-top: 4px;
+    }
+
+    .experience-info {
+        grid-column: 2;
+        grid-row: 2;
+    }
+
+    .experience-number {
+        grid-column: 1;
+        grid-row: 1;
+    }
+
+    .experience-item h3 {
+        font-size: 22px;
+    }
+}
+
 /* RESUME */
 .resume {
     padding: 65px 0 100px;
