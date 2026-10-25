@@ -339,80 +339,155 @@
     }
 }
 
-/* =========================
-   NEW COLOR PALETTE
-========================= */
+
+/* ==============================
+   ORIGINAL FOREST GREEN PALETTE
+============================== */
 
 :root {
-    --text: #272D2D;
-    --muted: #62696B;
-    --border: #D9E1E7;
-    --surface: #EDF5FC;
-    --accent: #23CE6B;
+    --text: #252525;
+    --muted: #717171;
+    --border: #CED0CE;
+    --surface: #E6E8E6;
+
+    --ash: #9FB8AD;
+    --granite: #475841;
+    --gunmetal: #3F403F;
 }
 
-/* Soft blue background behind introduction */
+/* GENERAL */
+body {
+    background: #ffffff;
+}
+
+/* NAVIGATION */
+header {
+    border-bottom: 1px solid #E6E8E6;
+}
+
+/* HOMEPAGE INTRODUCTION */
 .hero {
-    background: #EDF5FC;
+    background: #E6E8E6;
     border-radius: 8px;
     padding: 65px 55px 80px;
 }
 
-/* Slight color behind experience entries */
-.experience-item:nth-of-type(even) {
-    background: rgba(184, 197, 214, 0.15);
+/* SECTION HEADINGS */
+.section-top {
+    border-bottom: 1px solid #CED0CE;
+}
+
+.section-top h2::after {
+    content: "";
+    display: block;
+    width: 38px;
+    height: 3px;
+    background: #475841;
+    margin-top: 8px;
+}
+
+/* PROJECT THUMBNAILS */
+.project-image {
+    background: #E6E8E6;
+}
+
+/* PROJECT NUMBER LABELS */
+.project-number {
+    background: rgba(230, 232, 230, 0.95);
+    color: #252525;
+}
+
+/* EXPERIENCE */
+.experience-item:nth-child(odd) {
+    background: rgba(159, 184, 173, 0.12);
     border-radius: 5px;
     padding-left: 18px;
     padding-right: 18px;
 }
 
-/* Colored number labels */
 .experience-number {
-    background: #B8C5D6;
-    color: #272D2D;
+    background: #CED0CE;
 }
 
-/* Subtle green accent under headings */
-.section-top h2::after {
-    content: "";
-    display: block;
-    width: 35px;
-    height: 3px;
-    background: #23CE6B;
-    margin-top: 8px;
-}
-
-/* Soft blue resume section */
+/* RESUME PANEL */
 .resume {
-    background: #EDF5FC;
-    padding: 50px;
+    background: #E6E8E6;
     border-radius: 8px;
+    padding: 50px;
     margin-bottom: 80px;
 }
 
-/* Accent on resume link */
-.text-link {
-    border-bottom: 2px solid #23CE6B;
+/* PROJECT DETAIL PAGE */
+.project-header {
+    background: #E6E8E6;
+    border-radius: 8px;
+    padding: 45px 50px 55px;
+    margin-top: 35px;
+    margin-bottom: 35px;
 }
 
-/* Dark footer */
+/* PROJECT DETAIL HERO */
+.project-hero {
+    background: #CED0CE;
+}
+
+.project-hero img.contain {
+    background: #CED0CE;
+}
+
+/* PROJECT SIDEBAR */
+.project-sidebar > div {
+    background: #E6E8E6;
+    padding: 15px;
+    border-left: 3px solid #475841;
+    margin-bottom: 15px;
+}
+
+/* PHOTO GALLERY */
+.gallery-section {
+    background: #E6E8E6;
+    border-radius: 8px;
+    padding: 40px;
+    margin-bottom: 80px;
+}
+
+.project-gallery a {
+    background: #CED0CE;
+}
+
+/* LINKS */
+.text-link {
+    border-bottom: 2px solid #475841;
+}
+
+/* DARK FOOTER */
 footer {
-    background: #272D2D;
-    color: #EDF5FC;
+    background: #3F403F;
+    color: #ffffff;
 }
 
 footer .footer-content {
-    color: #EDF5FC;
+    color: #ffffff;
 }
 
-/* Mobile adjustments */
+/* MOBILE */
 @media (max-width: 768px) {
+
     .hero {
         padding: 35px 25px 55px;
     }
 
     .resume {
         padding: 30px 25px;
+    }
+
+    .project-header {
+        padding: 30px 25px 40px;
+        margin-top: 20px;
+    }
+
+    .gallery-section {
+        padding: 25px 18px;
     }
 }
 
