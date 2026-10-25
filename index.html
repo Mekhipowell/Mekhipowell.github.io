@@ -1,725 +1,788 @@
 
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Mekhi Powell | Mechanical Engineering</title>
-
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=EB+Garamond:wght@400;500;600;700&display=swap" rel="stylesheet">
-    
-<style>
-/* GENERAL */
-:root {
-    --text: #252525;
-    --muted: #717171;
-    --border: #e6e6e6;
-    --surface: #f3f3f3;
-}
-
-/* GARAMOND HEADINGS */
-h1, h2, h3 {
-    font-family: 'EB Garamond', Georgia, serif;
-    font-weight: 500;
-}
-    
-* {
-    box-sizing: border-box;
-}
-
-html {
-    scroll-behavior: smooth;
-}
-
-body {
-    margin: 0;
-    background: #ffffff;
-    color: var(--text);
-    font-family: Arial, Helvetica, sans-serif;
-    line-height: 1.7;
-}
-
-.container {
-    width: 88%;
-    max-width: 1150px;
-    margin: auto;
-}
-
-a {
-    color: inherit;
-    text-decoration: none;
-}
-
-/* NAVIGATION */
-header {
-    padding: 35px 0;
-}
-
-nav {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 20px;
-}
-
-.logo {
-    font-size: 14px;
-    font-weight: 600;
-    letter-spacing: 3px;
-}
-
-.nav-links {
-    display: flex;
-    gap: 35px;
-}
-
-.nav-links a {
-    font-size: 13px;
-    letter-spacing: 1px;
-}
-
-a:hover {
-    color: #888;
-}
-
-/* INTRODUCTION */
-.hero {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 90px;
-    align-items: center;
-    padding: 100px 0 135px;
-}
-
-.portrait {
-    width: 100%;
-    aspect-ratio: 4 / 5;
-    max-height: 600px;
-    object-fit: cover;
-    object-position: center;
-    border-radius: 5px;
-    display: block;
-}
-
-.eyebrow {
-    font-size: 12px;
-    letter-spacing: 2.4px;
-    text-transform: uppercase;
-    color: var(--muted);
-    line-height: 1.8;
-}
-
-.hero h1 {
-    font-size: clamp(40px, 5vw, 62px);
-    font-weight: 500;
-    letter-spacing: 1px;
-    line-height: 1.2;
-    margin: 30px 0 40px;
-}
-
-.hero p {
-    font-size: 15px;
-    color: #505050;
-    line-height: 1.9;
-    margin-bottom: 20px;
-}
-
-.text-link {
-    display: inline-block;
-    margin-top: 20px;
-    font-size: 13px;
-    border-bottom: 1px solid #252525;
-    padding-bottom: 5px;
-}
-
-/* PROJECTS */
-.projects {
-    padding: 35px 0 120px;
-}
-
-.section-top {
-    display: flex;
-    justify-content: space-between;
-    align-items: end;
-    border-bottom: 1px solid var(--border);
-    padding-bottom: 22px;
-    margin-bottom: 45px;
-}
-
-.section-top h2 {
-    font-size: 30px;
-    font-weight: 500;
-    margin: 0;
-}
-
-.section-top span {
-    color: var(--muted);
-    font-size: 13px;
-}
-
-.project-grid {
-    display: grid;
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 60px 30px;
-}
-
-.project {
-    min-width: 0;
-}
-
-
-.project-image {
-    width: 100%;
-    aspect-ratio: 4 / 3;
-    background: #f3f3f3;
-    position: relative;
-    border-radius: 4px;
-    overflow: hidden;
-}
-
-.project-image img {
-    position: absolute;
-    inset: 0;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    display: block;
-    transition: transform 0.3s ease;
-}
-/* NASTRAN IMAGE ADJUSTMENT */
-.project-image img.nastran-image {
-    object-fit: contain;
-    object-position: center;
-    padding: 15px;
-    background: #f3f3f3;
-}
-/* MANATEE IMAGE ADJUSTMENT */
-.project-image img.manatee-image {
-    object-fit: cover;
-    object-position: 35% center;
-}
-    .project-image.fpv-fit img {
-    width: 100%;
-    height: 100%;
-    object-fit: contain;
-    object-position: center;
-    background: #e9e9e9; /* optional, helps fill empty space nicely */
-}
-.project-image:hover img {
-    transform: scale(1.03);
-}
-.placeholder {
-    color: #a2a2a2;
-    font-size: 12px;
-    letter-spacing: 2px;
-    text-transform: uppercase;
-}
-
-.project-number {
-    position: absolute;
-    top: 18px;
-    left: 18px;
-
-    background: rgba(255, 255, 255, 0.90);
-    color: #252525;
-
-    padding: 6px 13px;
-    border-radius: 3px;
-
-    font-size: 12px;
-    font-weight: 600;
-    letter-spacing: 1px;
-
-    z-index: 2;
-}
-
-.project h3 {
-    margin: 20px 0 4px;
-    font-size: 20px;
-    font-weight: 500;
-}
-
-.project p {
-    margin: 0;
-    color: var(--muted);
-    font-size: 13px;
-}
-
-/* EXPERIENCE */
-.experience {
-    padding: 40px 0 110px;
-}
-
-.experience-item {
-    display: grid;
-    grid-template-columns: 45px minmax(0, 1fr) 140px;
-    gap: 25px;
-    align-items: start;
-    padding: 35px 0;
-    border-bottom: 1px solid var(--border);
-}
-
-.experience-number {
-    display: inline-block;
-    width: fit-content;
-    padding: 5px 11px;
-    background: #f3f3f3;
-    border-radius: 3px;
-    color: #252525;
-    font-size: 12px;
-    font-weight: 600;
-}
-
-.experience-info {
-    max-width: 700px;
-    min-width: 0;
-}
-
-.experience-item h3 {
-    font-family: 'EB Garamond', Georgia, serif;
-    font-size: 25px;
-    font-weight: 500;
-    margin: 0 0 8px;
-}
-
-.experience-company {
-    font-size: 14px;
-    color: #444;
-    margin: 0 0 14px;
-}
-
-.experience-description {
-    font-size: 14px;
-    line-height: 1.8;
-    color: #777;
-    margin: 0;
-}
-
-.experience-date {
-    text-align: right;
-    white-space: nowrap;
-    font-size: 13px;
-    color: #777;
-    padding-top: 6px;
-}
-
-/* MOBILE */
-@media (max-width: 768px) {
-    .experience {
-        padding: 20px 0 70px;
-    }
-
-    .experience-item {
-        grid-template-columns: 38px minmax(0, 1fr);
-        gap: 15px;
-        padding: 26px 0;
-    }
-
-    .experience-date {
-        grid-column: 2;
-        grid-row: 1;
-        text-align: left;
-        padding-top: 4px;
-    }
-
-    .experience-info {
-        grid-column: 2;
-        grid-row: 2;
-    }
-
-    .experience-number {
-        grid-column: 1;
-        grid-row: 1;
-    }
-
-    .experience-item h3 {
-        font-size: 22px;
-    }
-}
-
-/* RESUME */
-.resume {
-    padding: 65px 0 100px;
-    border-top: 1px solid var(--border);
-}
-
-.resume h2 {
-    font-size: 30px;
-    font-weight: 500;
-}
-
-.resume p {
-    color: var(--muted);
-    max-width: 650px;
-    font-size: 15px;
-}
-
-/* FOOTER */
-footer {
-    border-top: 1px solid var(--border);
-    padding: 30px 0 45px;
-}
-
-.footer-content {
-    display: flex;
-    justify-content: space-between;
-    gap: 20px;
-    color: var(--muted);
-    font-size: 12px;
-}
-
-/* MOBILE RESPONSIVENESS */
-@media (max-width: 768px) {
-
-    .container {
-        width: 90%;
-    }
-
-    header {
-        padding: 25px 0;
-    }
-
-    nav {
-        flex-wrap: wrap;
-    }
-
-    .logo {
-        font-size: 12px;
-    }
-
-    .nav-links {
-        gap: 17px;
-    }
-
-    .nav-links a {
-        font-size: 12px;
-    }
-
-    .hero {
-        grid-template-columns: 1fr;
-        gap: 40px;
-        padding: 45px 0 90px;
-    }
-
-    .portrait {
-        max-height: 550px;
-    }
-
-    .hero h1 {
-        font-size: 42px;
-        margin: 18px 0 25px;
-    }
-
-    .projects {
-        padding: 20px 0 80px;
-    }
-
-    .project-grid {
-        grid-template-columns: 1fr;
-        gap: 40px;
-    }
-
-    .section-top h2 {
-        font-size: 25px;
-    }
-
-    .section-top span {
-        font-size: 11px;
-    }
-
-    .footer-content {
-        flex-direction: column;
-        gap: 5px;
-    }
-}
-</style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description"
+          content="Engineering portfolio of Mekhi Powell, featuring mechanical design, FEA, manufacturing, and prototyping projects.">
+    <title>Mekhi Powell | Mechanical Engineering</title>
+
+    <!-- GOOGLE FONTS -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:wght@400;500;600;700&display=swap"
+          rel="stylesheet">
+
+    <style>
+        /* =========================
+           GENERAL STYLING
+        ========================= */
+
+        :root {
+            --text: #252525;
+            --muted: #717171;
+            --border: #e6e6e6;
+            --surface: #f3f3f3;
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            margin: 0;
+            background: #ffffff;
+            color: var(--text);
+            font-family: Arial, Helvetica, sans-serif;
+            line-height: 1.7;
+        }
+
+        .container {
+            width: 88%;
+            max-width: 1150px;
+            margin: 0 auto;
+        }
+
+        h1, h2, h3 {
+            font-family: 'EB Garamond', Georgia, serif;
+            font-weight: 500;
+        }
+
+        a {
+            color: inherit;
+            text-decoration: none;
+        }
+
+        a:hover {
+            color: #777;
+        }
+
+        a:focus-visible {
+            outline: 2px solid #252525;
+            outline-offset: 4px;
+        }
+
+        /* =========================
+           NAVIGATION
+        ========================= */
+
+        header {
+            padding: 35px 0;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .logo {
+            font-size: 14px;
+            font-weight: 600;
+            letter-spacing: 2px;
+        }
+
+        .nav-links {
+            display: flex;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 30px;
+        }
+
+        .nav-links a {
+            font-size: 13px;
+            letter-spacing: 0.5px;
+        }
+
+        /* =========================
+           ABOUT / INTRODUCTION
+        ========================= */
+
+        .hero {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 90px;
+            align-items: center;
+            padding: 100px 0 135px;
+        }
+
+        .portrait {
+            width: 100%;
+            aspect-ratio: 4 / 5;
+            max-height: 600px;
+            object-fit: cover;
+            object-position: center;
+            border-radius: 5px;
+            display: block;
+        }
+
+        .eyebrow {
+            font-size: 12px;
+            letter-spacing: 2.4px;
+            text-transform: uppercase;
+            color: var(--muted);
+            line-height: 1.8;
+        }
+
+        .hero h1 {
+            font-size: clamp(40px, 5vw, 62px);
+            line-height: 1.2;
+            letter-spacing: 1px;
+            margin: 30px 0 40px;
+        }
+
+        .hero p {
+            font-size: 15px;
+            color: #505050;
+            line-height: 1.9;
+            margin: 0 0 20px;
+        }
+
+        .text-link {
+            display: inline-block;
+            margin-top: 20px;
+            font-size: 13px;
+            border-bottom: 1px solid var(--text);
+            padding-bottom: 5px;
+        }
+
+        /* =========================
+           SECTION HEADINGS
+        ========================= */
+
+        .section-top {
+            display: flex;
+            justify-content: space-between;
+            align-items: end;
+            gap: 20px;
+            border-bottom: 1px solid var(--border);
+            padding-bottom: 22px;
+            margin-bottom: 45px;
+        }
+
+        .section-top h2 {
+            font-size: 30px;
+            margin: 0;
+        }
+
+        .section-top span {
+            font-size: 13px;
+            color: var(--muted);
+        }
+
+        /* =========================
+           PROJECT GALLERY
+        ========================= */
+
+        .projects {
+            padding: 35px 0 120px;
+        }
+
+        .project-grid {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 60px 30px;
+        }
+
+        .project {
+            min-width: 0;
+        }
+
+        /* Entire card is clickable */
+        .project-link {
+            display: block;
+            color: inherit;
+        }
+
+        .project-image {
+            width: 100%;
+            aspect-ratio: 4 / 3;
+            background: var(--surface);
+            position: relative;
+            border-radius: 4px;
+            overflow: hidden;
+        }
+
+        .project-image img {
+            position: absolute;
+            inset: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+            transition: transform 0.3s ease;
+        }
+
+        .project-link:hover .project-image img {
+            transform: scale(1.03);
+        }
+
+        .project-link:hover h3 {
+            color: #666;
+        }
+
+        /* NASTRAN image */
+        .project-image img.nastran-image {
+            object-fit: contain;
+            object-position: center;
+            padding: 15px;
+            background: var(--surface);
+        }
+
+        /* Manatee image */
+        .project-image img.manatee-image {
+            object-fit: cover;
+            object-position: 35% center;
+        }
+
+        /* FPV Drone image */
+        .project-image.fpv-fit img {
+            object-fit: contain;
+            object-position: center;
+            background: #e9e9e9;
+        }
+
+        /* Project numbers */
+        .project-number {
+            position: absolute;
+            top: 18px;
+            left: 18px;
+            z-index: 2;
+
+            background: rgba(255, 255, 255, 0.90);
+            color: #252525;
+
+            padding: 6px 13px;
+            border-radius: 3px;
+
+            font-size: 12px;
+            font-weight: 600;
+            letter-spacing: 1px;
+        }
+
+        .project h3 {
+            font-size: 20px;
+            margin: 20px 0 4px;
+            transition: color 0.2s ease;
+        }
+
+        .project p {
+            color: var(--muted);
+            font-size: 13px;
+            margin: 0;
+        }
+
+        /* =========================
+           EXPERIENCE SECTION
+        ========================= */
+
+        .experience {
+            padding: 40px 0 110px;
+        }
+
+        .experience-item {
+            display: grid;
+            grid-template-columns: 45px minmax(0, 1fr) 140px;
+            gap: 25px;
+            align-items: start;
+            padding: 35px 0;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .experience-number {
+            display: inline-block;
+            width: fit-content;
+            padding: 5px 11px;
+            background: var(--surface);
+            border-radius: 3px;
+            font-size: 12px;
+            font-weight: 600;
+        }
+
+        .experience-info {
+            max-width: 700px;
+            min-width: 0;
+        }
+
+        .experience-item h3 {
+            font-size: 25px;
+            margin: 0 0 8px;
+        }
+
+        .experience-company {
+            font-size: 14px;
+            color: #444;
+            margin: 0 0 14px;
+        }
+
+        .experience-description {
+            font-size: 14px;
+            line-height: 1.8;
+            color: var(--muted);
+            margin: 0;
+        }
+
+        .experience-date {
+            text-align: right;
+            white-space: nowrap;
+            font-size: 13px;
+            color: var(--muted);
+            padding-top: 6px;
+        }
+
+        /* =========================
+           RESUME
+        ========================= */
+
+        .resume {
+            padding: 65px 0 100px;
+            border-top: 1px solid var(--border);
+        }
+
+        .resume h2 {
+            font-size: 30px;
+            margin: 0;
+        }
+
+        .resume p {
+            color: var(--muted);
+            max-width: 650px;
+            font-size: 15px;
+        }
+
+        /* =========================
+           FOOTER
+        ========================= */
+
+        footer {
+            border-top: 1px solid var(--border);
+            padding: 30px 0 45px;
+        }
+
+        .footer-content {
+            display: flex;
+            justify-content: space-between;
+            gap: 20px;
+            color: var(--muted);
+            font-size: 12px;
+        }
+
+        /* =========================
+           MOBILE RESPONSIVENESS
+        ========================= */
+
+        @media (max-width: 768px) {
+
+            .container {
+                width: 90%;
+            }
+
+            header {
+                padding: 25px 0;
+            }
+
+            nav {
+                flex-wrap: wrap;
+            }
+
+            .logo {
+                font-size: 12px;
+            }
+
+            .nav-links {
+                gap: 15px;
+            }
+
+            .nav-links a {
+                font-size: 12px;
+            }
+
+            .hero {
+                grid-template-columns: 1fr;
+                gap: 40px;
+                padding: 45px 0 90px;
+            }
+
+            .portrait {
+                max-height: 550px;
+            }
+
+            .hero h1 {
+                font-size: 42px;
+                margin: 18px 0 25px;
+            }
+
+            .projects {
+                padding: 20px 0 80px;
+            }
+
+            .project-grid {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+
+            .section-top h2 {
+                font-size: 25px;
+            }
+
+            .section-top span {
+                font-size: 11px;
+            }
+
+            .experience {
+                padding: 20px 0 70px;
+            }
+
+            .experience-item {
+                grid-template-columns: 38px minmax(0, 1fr);
+                gap: 15px;
+                padding: 26px 0;
+            }
+
+            .experience-number {
+                grid-column: 1;
+                grid-row: 1;
+            }
+
+            .experience-date {
+                grid-column: 2;
+                grid-row: 1;
+                text-align: left;
+                padding-top: 4px;
+            }
+
+            .experience-info {
+                grid-column: 2;
+                grid-row: 2;
+            }
+
+            .experience-item h3 {
+                font-size: 22px;
+            }
+
+            .footer-content {
+                flex-direction: column;
+                gap: 5px;
+            }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            html {
+                scroll-behavior: auto;
+            }
+
+            .project-image img {
+                transition: none;
+            }
+        }
+    </style>
 </head>
 
 <body>
 
-<!-- NAVIGATION -->
-<header>
-    <div class="container">
-        <nav>
-            <a href="#" class="logo">MEKHI POWELL</a>
+    <!-- =========================
+         NAVIGATION
+    ========================= -->
+    <header>
+        <div class="container">
+            <nav aria-label="Main navigation">
+                <a href="#about" class="logo">Mekhi Powell</a>
 
-            <div class="nav-links">
-                <a href="#about">About</a>
-                <a href="#projects">Projects</a>
-                <a href="#resume">Résumé</a>
+                <div class="nav-links">
+                    <a href="#about">About</a>
+                    <a href="#projects">Projects</a>
+                    <a href="#experience">Experience</a>
+                    <a href="#resume">Résumé</a>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+
+        <!-- =========================
+             ABOUT ME
+        ========================= -->
+        <section class="container hero" id="about">
+
+            <div>
+                <img
+                    src="Smiling%20Man%20by%20the%20Waterfront.png"
+                    alt="Portrait of Mekhi Powell"
+                    class="portrait"
+                >
             </div>
-        </nav>
-    </div>
-</header>
 
-<main>
+            <div class="hero-content">
 
-<!-- ABOUT / INTRODUCTION -->
-<section class="container hero" id="about">
+                <div class="eyebrow">
+                    Senior Mechanical Engineering Student<br>
+                    At Florida Polytechnic University
+                </div>
 
-    <div>
-        <img
-            src="Smiling%20Man%20by%20the%20Waterfront.png"
-            alt="Portrait of Mekhi Powell"
-            class="portrait"
-        >
-    </div>
+                <h1>Mekhi Powell</h1>
 
-    <div class="hero-content">
+                <p>
+                    Hello, I'm Mekhi! I'm a Mechanical Engineering
+                    student at Florida Polytechnic University,
+                    graduating in May 2027.
+                </p>
 
-        <div class="eyebrow">
-            Senior Mechanical Engineering Student<br>
-            At Florida Polytechnic University
-        </div>
+                <p>
+                    I enjoy building things, solving problems,
+                    and understanding how things work.
+                    My engineering interests include mechanical
+                    design, structural analysis, manufacturing,
+                    and product development.
+                </p>
 
-        <h1>Mekhi Powell</h1>
+                <p>
+                    Outside of engineering, I enjoy weightlifting,
+                    car/motorcycle culture, cycling, photography,
+                    and fashion.
+                </p>
 
-        <p>
-            Hello, I'm Mekhi! I'm a Mechanical Engineering
-            student at Florida Polytechnic University,
-            graduating in May 2027.
-        </p>
+                <a href="#projects" class="text-link">
+                    Explore My Work &darr;
+                </a>
 
-        <p>
-            I enjoy building things, solving problems,
-            and understanding how things work.
-            My engineering interests include mechanical
-            design, structural analysis, manufacturing,
-            and product development.
-        </p>
+            </div>
+        </section>
 
-        <p>
-            Outside of engineering, I enjoy weightlifting, 
-            car/motorcycle culture, cycling, photography, 
-            and fashion.
-        </p>
+        <!-- =========================
+             PROJECT GALLERY
+        ========================= -->
+        <section class="container projects" id="projects">
 
-        <a href="#projects" class="text-link">
-            Explore My Work &darr;
-        </a>
+            <div class="section-top">
+                <h2>Selected Projects</h2>
+                <span>Engineering Portfolio</span>
+            </div>
 
-    </div>
-</section>
+            <div class="project-grid">
 
-<!-- PROJECT GALLERY -->
-<section class="container projects" id="projects">
+                <!-- PROJECT 01: CHARPY -->
+                <article class="project">
+                    <a href="project.html?id=charpy" class="project-link">
+                        <div class="project-image">
+                            <img src="charpy-2.webp"
+                                 alt="Charpy Impact Tester prototype"
+                                 loading="lazy">
+                            <span class="project-number">01</span>
+                        </div>
+                        <h3>Charpy Impact Tester</h3>
+                        <p>Mechanical Design / SolidWorks / Prototyping</p>
+                    </a>
+                </article>
 
-    <div class="section-top">
-        <h2>Selected Projects</h2>
-        <span>Engineering Portfolio</span>
-    </div>
+                <!-- PROJECT 02: NASTRAN -->
+                <article class="project">
+                    <a href="project.html?id=nastran" class="project-link">
+                        <div class="project-image">
+                            <img src="nastran-1.webp"
+                                 alt="Aircraft Wing Spar Finite Element Analysis"
+                                 class="nastran-image"
+                                 loading="lazy">
+                            <span class="project-number">02</span>
+                        </div>
+                        <h3>Aircraft Wing Spar Analysis</h3>
+                        <p>Finite Element Analysis / Simcenter NASTRAN</p>
+                    </a>
+                </article>
 
-    <div class="project-grid">
+                <!-- PROJECT 03: CAPSTONE -->
+                <article class="project">
+                    <a href="project.html?id=manatee" class="project-link">
+                        <div class="project-image">
+                            <img src="manatee.jpg"
+                                 alt="Manatee with an attached research tag"
+                                 class="manatee-image"
+                                 loading="lazy">
+                            <span class="project-number">03</span>
+                        </div>
+                        <h3>Manatee Tag Release &amp; Recovery</h3>
+                        <p>Senior Capstone / Mechanical Design</p>
+                    </a>
+                </article>
 
-        <!-- PROJECT 01 -->
-        <article class="project">
-            <div class="project-image">
-            <img src="charpy-2.webp"
-            alt="Charpy Impact Tester prototype">
+                <!-- PROJECT 04: AERODYNAMICS -->
+                <article class="project">
+                    <a href="project.html?id=aero" class="project-link">
+                        <div class="project-image">
+                            <img src="aero-09.jpg"
+                                 alt="Aerodynamic testing project equipment"
+                                 loading="lazy">
+                            <span class="project-number">04</span>
+                        </div>
+                        <h3>Aerodynamic Drag Testing</h3>
+                        <p>Experimental Testing / Instrumentation</p>
+                    </a>
+                </article>
 
-    <span class="project-number">01</span>
-</div>
+                <!-- PROJECT 05: FPV DRONE -->
+                <article class="project">
+                    <a href="project.html?id=drone" class="project-link">
+                        <div class="project-image fpv-fit">
+                            <img src="Quadcopter%20Frame%20Strain%20Analysis.png"
+                                 alt="FPV Drone Frame Strain Analysis"
+                                 loading="lazy">
+                            <span class="project-number">05</span>
+                        </div>
+                        <h3>FPV Drone Frame Optimization</h3>
+                        <p>SolidWorks / FEA / Structural Optimization</p>
+                    </a>
+                </article>
 
-            <h3>Charpy Impact Tester</h3>
+                <!-- PROJECT 06: CONTROL PANEL -->
+                <article class="project">
+                    <a href="project.html?id=panel" class="project-link">
+                        <div class="project-image">
+                            <img src="Robotics%20Control%20Console%20CAD%20Render.png"
+                                 alt="Robotics Operator Control Panel CAD model"
+                                 loading="lazy">
+                            <span class="project-number">06</span>
+                        </div>
+                        <h3>Robotics Operator Control Panel</h3>
+                        <p>Onshape / Mechanical Design / Fabrication</p>
+                    </a>
+                </article>
+
+                <!-- PROJECT 07: FIRST ROBOTICS -->
+                <article class="project">
+                    <a href="project.html?id=frc" class="project-link">
+                        <div class="project-image">
+                            <img src="frc-05.webp"
+                                 alt="FIRST Robotics Competition robot Lucy"
+                                 loading="lazy">
+                            <span class="project-number">07</span>
+                        </div>
+                        <h3>FIRST Robotics Competition — Lucy</h3>
+                        <p>Manufacturing / Machining / Mechanical Integration</p>
+                    </a>
+                </article>
+
+            </div>
+        </section>
+
+        <!-- =========================
+             EXPERIENCE
+        ========================= -->
+        <section class="container experience" id="experience">
+
+            <div class="section-top">
+                <h2>Experience</h2>
+                <span>Professional &amp; Technical</span>
+            </div>
+
+            <!-- EXPERIENCE 01 -->
+            <div class="experience-item">
+                <span class="experience-number">01</span>
+
+                <div class="experience-info">
+                    <h3>STEM Instructional Intern</h3>
+
+                    <p class="experience-company">
+                        TechCORE2 / Urban League of Philadelphia
+                    </p>
+
+                    <p class="experience-description">
+                        Introduced CAD instruction and developed
+                        hands-on engineering lessons covering CAD,
+                        Python, AI, and design for manufacturing.
+                        Collaborated with fellow interns to support
+                        classroom operations.
+                    </p>
+                </div>
+
+                <span class="experience-date">Summer 2026</span>
+            </div>
+
+            <!-- EXPERIENCE 02 -->
+            <div class="experience-item">
+                <span class="experience-number">02</span>
+
+                <div class="experience-info">
+                    <h3>University Event Services</h3>
+
+                    <p class="experience-company">
+                        Florida Polytechnic University
+                    </p>
+
+                    <p class="experience-description">
+                        Support campus event setup and teardown,
+                        arrange equipment and event spaces,
+                        and communicate directly with event
+                        organizers to accommodate their needs
+                        and ensure smooth event operations.
+                    </p>
+                </div>
+
+                <span class="experience-date">2026 – Present</span>
+            </div>
+
+            <!-- EXPERIENCE 03 -->
+            <div class="experience-item">
+                <span class="experience-number">03</span>
+
+                <div class="experience-info">
+                    <h3>Lead Machinist</h3>
+
+                    <p class="experience-company">
+                        FIRST Robotics Competition / Team 321
+                    </p>
+
+                    <p class="experience-description">
+                        Manufactured and integrated competition
+                        robot components, collaborating across
+                        mechanical, CAD, and electrical teams
+                        to resolve fabrication and assembly issues.
+                    </p>
+                </div>
+
+                <span class="experience-date">2023</span>
+            </div>
+
+        </section>
+
+        <!-- =========================
+             RESUME
+        ========================= -->
+        <section class="container resume" id="resume">
+
+            <h2>Résumé</h2>
+
             <p>
-                Mechanical Design / SolidWorks /
-                Prototyping
+                My experience includes mechanical design,
+                CAD modeling, structural analysis,
+                prototyping, and engineering education.
             </p>
-        </article>
 
-        <!-- PROJECT 02 -->
-        <article class="project">
-            <div class="project-image">
-    <img src="nastran-1.webp"
-         alt="Aircraft Wing Spar NASTRAN Finite Element Analysis"
-         class="nastran-image">
+            <a href="resume.pdf" download class="text-link">
+                Download Résumé &darr;
+            </a>
 
-    <span class="project-number">02</span>
-</div>
+        </section>
 
-            <h3>Aircraft Wing Spar Analysis</h3>
-            <p>
-                Finite Element Analysis /
-                Simcenter NASTRAN
-            </p>
-        </article>
+    </main>
 
-        <!-- PROJECT 03 -->
-        <article class="project">
-         <div class="project-image">
-    <img src="manatee.jpg"
-         alt="Manatee Tag Release and Recovery"
-         class="manatee-image">
-
-    <span class="project-number">03</span>
-</div>
-
-            <h3>Manatee Tag Release & Recovery</h3>
-            <p>
-                Senior Capstone /
-                Mechanical Design
-            </p>
-        </article>
-
-        <!-- PROJECT 04 -->
-        <article class="project">
-          <div class="project-image">
-    <img src="aero-09.jpg"
-         alt="Aerodynamic Drag Testing wind tunnel setup">
-
-    <span class="project-number">04</span>
-</div>
-            <h3>Aerodynamic Drag Testing</h3>
-            <p>
-                Experimental Testing /
-                Instrumentation
-            </p>
-        </article>
-    
-<!-- PROJECT 05 -->
-<article class="project">
-    <div class="project-image fpv-fit">
-        <img src="Quadcopter Frame Strain Analysis.png"
-             alt="FPV Drone Frame Optimization">
-        <span class="project-number">05</span>
-    </div>
-
-    <h3>FPV Drone Frame Optimization</h3>
-    <p>SolidWorks / Finite Element Analysis / Structural Optimization</p>
-</article>
-        
-<!-- PROJECT 06 -->
-<article class="project">
-    <div class="project-image">
-        <img src="Robotics Control Console CAD Render.png"
-             alt="FRC robotics operator control panel">
-
-        <span class="project-number">06</span>
-    </div>
-
-    <h3>Robotics Operator Control Panel</h3>
-    <p>
-        Onshape / Mechanical Design / Fabrication
-    </p>
-</article>
-
-<!-- PROJECT 07 -->
-<article class="project">
-    <div class="project-image">
-        <img src="frc-05.webp"
-             alt="FIRST Robotics Competition robot Lucy">
-
-        <span class="project-number">07</span>
-    </div>
-
-    <h3>FIRST Robotics Competition — Lucy</h3>
-    <p>
-        Manufacturing / Machining /
-        Mechanical Integration
-    </p>
-</article>
-
-
-    <!-- This closes the entire project grid -->
-    </div>
-
-</section>
-    </div>
-</section>
-
-
-<!-- EXPERIENCE SECTION -->
-<section class="container experience" id="experience">
-
-    <div class="section-top">
-        <h2>Experience</h2>
-        <span>Professional & Technical</span>
-    </div>
-
-    <div class="experience-item">
-        <span class="experience-number">01</span>
-        <div class="experience-info">
-            <h3>STEM Instructional Intern</h3>
-            <p class="experience-company">
-                TechCORE2 / Urban League of Philadelphia
-            </p>
-            <p class="experience-description">
-                Introduced CAD instruction and developed
-                hands-on engineering lessons covering
-                CAD, Python, AI, and design for manufacturing.
-                Collaborated with fellow interns to
-                support classroom operations.
-            </p>
+    <!-- =========================
+         FOOTER
+    ========================= -->
+    <footer>
+        <div class="container footer-content">
+            <span>&copy; 2026 Mekhi Powell</span>
+            <span>
+                Mechanical Engineering · Florida Polytechnic University
+            </span>
         </div>
-        <span class="experience-date">Summer 2026</span>
-    </div>
-
-    <div class="experience-item">
-        <span class="experience-number">02</span>
-        <div class="experience-info">
-            <h3>University Event Services</h3>
-            <p class="experience-company">
-                Florida Polytechnic University
-            </p>
-            <p class="experience-description">
-                Support campus event setup and teardown,
-                arrange equipment and event spaces,
-                and communicate directly with event
-                organizers to accommodate their needs
-                and ensure smooth event operations.
-            </p>
-        </div>
-        <span class="experience-date">2026 – Present</span>
-    </div>
-
-
-    <div class="experience-item">
-        <span class="experience-number">03</span>
-        <div class="experience-info">
-            <h3>Lead Machinist</h3>
-            <p class="experience-company">
-                FIRST Robotics Competition / Team 321
-            </p>
-            <p class="experience-description">
-                Manufactured and integrated competition
-                robot components, collaborating across
-                mechanical, CAD, and electrical teams
-                to resolve fabrication and assembly issues.
-            </p>
-        </div>
-        <span class="experience-date">2023</span>
-    </div>
-
-</section>
-
-<!-- RESUME SECTION -->
-<section class="container resume" id="resume">
-
-    <h2>Résumé</h2>
-
-    <p>
-        My experience includes mechanical design,
-        CAD modeling, structural analysis,
-        prototyping, and engineering education.
-    </p>
-
-    <a href="resume.pdf" download class="text-link">
-        Download Résumé ↓
-    </a>
-
-</section>
-    
-</main>
-
-<!-- FOOTER -->
-<footer>
-    <div class="container footer-content">
-        <span>© 2026 Mekhi Powell</span>
-        <span>Mechanical Engineering · Florida Polytechnic University</span>
-    </div>
-</footer>
+    </footer>
 
 </body>
 </html>
