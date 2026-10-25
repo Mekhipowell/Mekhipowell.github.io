@@ -265,6 +265,80 @@
                 font-size: 27px;
             }
         }
+        
+/* =========================
+   PROJECT PHOTO GALLERY
+========================= */
+
+.gallery-section {
+    padding-bottom: 100px;
+}
+
+.gallery-section[hidden] {
+    display: none;
+}
+
+.gallery-section h2 {
+    font-size: 30px;
+    margin: 0 0 35px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid var(--border);
+}
+
+.project-gallery {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 35px 25px;
+}
+
+.project-gallery figure {
+    margin: 0;
+    min-width: 0;
+}
+
+.project-gallery a {
+    display: block;
+    aspect-ratio: 4 / 3;
+    overflow: hidden;
+    border-radius: 5px;
+    background: var(--surface);
+}
+
+.project-gallery img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+}
+
+/* For CAD drawings and FEA screenshots */
+.project-gallery img.contain {
+    object-fit: contain;
+}
+
+.project-gallery a:hover img {
+    transform: scale(1.03);
+}
+
+.project-gallery figcaption {
+    margin-top: 12px;
+    font-size: 13px;
+    color: var(--muted);
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+    .project-gallery {
+        grid-template-columns: 1fr;
+        gap: 30px;
+    }
+
+    .gallery-section {
+        padding-bottom: 70px;
+    }
+}
+
     </style>
 </head>
 
@@ -344,6 +418,18 @@
 
             </div>
         </div>
+
+<!-- ADDITIONAL PROJECT PHOTOS -->
+<section class="container gallery-section"
+         id="gallery-section" hidden>
+
+    <h2>Project Gallery</h2>
+
+    <div class="project-gallery"
+         id="project-gallery">
+    </div>
+
+</section>
 
         <div class="container next-project">
             <a href="index.html#projects">
@@ -542,6 +628,128 @@
 
         };
 
+/* =========================
+   PROJECT PHOTO GALLERIES
+========================= */
+
+const galleries = {
+
+    // 01 - CHARPY IMPACT TESTER
+    charpy: [
+        {
+            file: "charpy-1.webp",
+            caption: "Pendulum shaft and mechanical connection"
+        },
+        {
+            file: "charpy-3.webp",
+            caption: "Electronics and instrumentation assembly"
+        },
+        {
+            file: "charpy-5.webp",
+            caption: "Completed impact tester - side view"
+        },
+        {
+            file: "charpy-6.webp",
+            caption: "Arduino and LCD integration"
+        }
+    ],
+
+    // 02 - AIRCRAFT WING SPAR
+    nastran: [
+        {
+            file: "nastran-2.webp",
+            caption: "Beam cross-section and section properties",
+            fit: "contain"
+        }
+    ],
+
+    // 03 - MANATEE CAPSTONE
+    manatee: [
+        // Add additional project photos here later
+    ],
+
+    // 04 - AERODYNAMIC DRAG TESTING
+    aero: [
+        {
+            file: "aero-02.jpg",
+            caption: "Differential pressure measurement"
+        },
+        {
+            file: "aero-06.jpg",
+            caption: "Wind tunnel experimental setup"
+        },
+        {
+            file: "aero-11.jpg",
+            caption: "Variable voltage regulator"
+        },
+        {
+            file: "aero-12.jpg",
+            caption: "Instrumentation wiring"
+        }
+    ],
+
+    // 05 - FPV DRONE FRAME
+    drone: [
+        {
+            file: "drone-01.webp",
+            caption: "Frame design and finite element analysis",
+            fit: "contain"
+        },
+        {
+            file: "drone-02.webp",
+            caption: "Structural strain visualization",
+            fit: "contain"
+        },
+        {
+            file: "drone-03.webp",
+            caption: "Design iteration comparison",
+            fit: "contain"
+        },
+        {
+            file: "drone-04.webp",
+            caption: "Drone frame CAD geometry",
+            fit: "contain"
+        }
+    ],
+
+    // 06 - ROBOTICS OPERATOR CONTROL PANEL
+    panel: [
+        {
+            file: "panel-01.webp",
+            caption: "Operator control panel CAD design",
+            fit: "contain"
+        },
+        {
+            file: "panel-02.webp",
+            caption: "Wooden base fabrication"
+        },
+        {
+            file: "panel-03.webp",
+            caption: "Final operator control panel"
+        }
+    ],
+
+    // 07 - FIRST ROBOTICS COMPETITION
+    frc: [
+        {
+            file: "frc-01.webp",
+            caption: "Competition robot"
+        },
+        {
+            file: "frc-02.webp",
+            caption: "Robot assembly and integration"
+        },
+        {
+            file: "frc-06.webp",
+            caption: "Robot at competition"
+        },
+        {
+            file: "frc-09.webp",
+            caption: "FIRST Robotics team and competition"
+        }
+    ]
+};
+
         /*
           LOAD THE SELECTED PROJECT
         */
@@ -587,6 +795,53 @@
                 item.textContent = highlight;
                 list.appendChild(item);
             });
+
+/* DISPLAY ADDITIONAL PROJECT PHOTOS */
+
+const photos = galleries[projectId] || [];
+
+if (photos.length > 0) {
+
+    const gallerySection =
+        document.getElementById("gallery-section");
+
+    const galleryGrid =
+        document.getElementById("project-gallery");
+
+    photos.forEach(function(photo) {
+
+        const figure = document.createElement("figure");
+
+        const link = document.createElement("a");
+        link.href = photo.file;
+        link.target = "_blank";
+        link.rel = "noopener noreferrer";
+        link.setAttribute(
+            "aria-label",
+            "View full image: " + photo.caption
+        );
+
+        const img = document.createElement("img");
+        img.src = photo.file;
+        img.alt = photo.caption;
+        img.loading = "lazy";
+
+        if (photo.fit === "contain") {
+            img.classList.add("contain");
+        }
+
+        const caption = document.createElement("figcaption");
+        caption.textContent = photo.caption;
+
+        link.appendChild(img);
+        figure.appendChild(link);
+        figure.appendChild(caption);
+
+        galleryGrid.appendChild(figure);
+    });
+
+    gallerySection.hidden = false;
+}
 
         } else {
 
