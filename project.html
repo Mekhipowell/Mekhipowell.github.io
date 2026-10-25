@@ -339,6 +339,83 @@
     }
 }
 
+/* =========================
+   NEW COLOR PALETTE
+========================= */
+
+:root {
+    --text: #272D2D;
+    --muted: #62696B;
+    --border: #D9E1E7;
+    --surface: #EDF5FC;
+    --accent: #23CE6B;
+}
+
+/* Soft blue background behind introduction */
+.hero {
+    background: #EDF5FC;
+    border-radius: 8px;
+    padding: 65px 55px 80px;
+}
+
+/* Slight color behind experience entries */
+.experience-item:nth-of-type(even) {
+    background: rgba(184, 197, 214, 0.15);
+    border-radius: 5px;
+    padding-left: 18px;
+    padding-right: 18px;
+}
+
+/* Colored number labels */
+.experience-number {
+    background: #B8C5D6;
+    color: #272D2D;
+}
+
+/* Subtle green accent under headings */
+.section-top h2::after {
+    content: "";
+    display: block;
+    width: 35px;
+    height: 3px;
+    background: #23CE6B;
+    margin-top: 8px;
+}
+
+/* Soft blue resume section */
+.resume {
+    background: #EDF5FC;
+    padding: 50px;
+    border-radius: 8px;
+    margin-bottom: 80px;
+}
+
+/* Accent on resume link */
+.text-link {
+    border-bottom: 2px solid #23CE6B;
+}
+
+/* Dark footer */
+footer {
+    background: #272D2D;
+    color: #EDF5FC;
+}
+
+footer .footer-content {
+    color: #EDF5FC;
+}
+
+/* Mobile adjustments */
+@media (max-width: 768px) {
+    .hero {
+        padding: 35px 25px 55px;
+    }
+
+    .resume {
+        padding: 30px 25px;
+    }
+}
+
     </style>
 </head>
 
