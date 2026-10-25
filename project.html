@@ -1,0 +1,605 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Engineering Project | Mekhi Powell</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:wght@400;500;600;700&display=swap"
+          rel="stylesheet">
+
+    <style>
+        :root {
+            --text: #252525;
+            --muted: #717171;
+            --border: #e6e6e6;
+            --surface: #f3f3f3;
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            background: #ffffff;
+            color: var(--text);
+            font-family: Arial, Helvetica, sans-serif;
+            line-height: 1.8;
+        }
+
+        .container {
+            width: 88%;
+            max-width: 1150px;
+            margin: 0 auto;
+        }
+
+        h1, h2, h3 {
+            font-family: 'EB Garamond', Georgia, serif;
+            font-weight: 500;
+        }
+
+        a {
+            color: inherit;
+            text-decoration: none;
+        }
+
+        a:hover {
+            color: #777;
+        }
+
+        a:focus-visible {
+            outline: 2px solid #252525;
+            outline-offset: 4px;
+        }
+
+        /* NAVIGATION */
+        header {
+            padding: 35px 0;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .logo {
+            font-size: 14px;
+            font-weight: 600;
+            letter-spacing: 2px;
+        }
+
+        .nav-links {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 30px;
+            font-size: 13px;
+        }
+
+        /* PROJECT HEADING */
+        .project-header {
+            padding: 65px 0 55px;
+        }
+
+        .back-link {
+            display: inline-block;
+            font-size: 13px;
+            color: var(--muted);
+            margin-bottom: 65px;
+        }
+
+        .project-label {
+            color: var(--muted);
+            font-size: 12px;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+        }
+
+        .project-header h1 {
+            font-size: clamp(42px, 6vw, 72px);
+            line-height: 1.15;
+            margin: 15px 0 20px;
+        }
+
+        .project-subtitle {
+            color: var(--muted);
+            font-size: 14px;
+        }
+
+        /* HERO IMAGE */
+        .project-hero {
+            width: 100%;
+            aspect-ratio: 16 / 9;
+            background: var(--surface);
+            border-radius: 5px;
+            overflow: hidden;
+        }
+
+        .project-hero img {
+            display: block;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .project-hero img.contain {
+            object-fit: contain;
+            padding: 20px;
+            background: var(--surface);
+        }
+
+        .project-hero img.manatee {
+            object-position: 35% center;
+        }
+
+        /* TECHNICAL CONTENT */
+        .project-content {
+            display: grid;
+            grid-template-columns: 220px minmax(0, 1fr);
+            gap: 90px;
+            padding: 85px 0 120px;
+        }
+
+        .project-sidebar {
+            color: var(--muted);
+            font-size: 13px;
+        }
+
+        .project-sidebar strong {
+            display: block;
+            color: var(--text);
+            font-weight: 600;
+            margin-bottom: 6px;
+        }
+
+        .project-sidebar p {
+            margin: 0 0 25px;
+        }
+
+        .project-body {
+            max-width: 740px;
+        }
+
+        .project-body section {
+            padding-bottom: 32px;
+            margin-bottom: 35px;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .project-body h2 {
+            font-size: 30px;
+            margin: 0 0 20px;
+        }
+
+        .project-body p,
+        .project-body li {
+            color: #555;
+            font-size: 15px;
+            line-height: 1.9;
+        }
+
+        .project-body ul {
+            padding-left: 20px;
+        }
+
+        .project-body li {
+            margin-bottom: 12px;
+        }
+
+        .next-project {
+            padding-bottom: 100px;
+        }
+
+        .next-project a {
+            display: inline-block;
+            font-size: 14px;
+            border-bottom: 1px solid var(--text);
+            padding-bottom: 5px;
+        }
+
+        footer {
+            border-top: 1px solid var(--border);
+            padding: 30px 0 45px;
+            color: var(--muted);
+            font-size: 12px;
+        }
+
+        /* MOBILE */
+        @media (max-width: 768px) {
+            .container {
+                width: 90%;
+            }
+
+            header {
+                padding: 25px 0;
+            }
+
+            nav {
+                flex-wrap: wrap;
+            }
+
+            .nav-links {
+                gap: 15px;
+                font-size: 12px;
+            }
+
+            .project-header {
+                padding: 30px 0 35px;
+            }
+
+            .back-link {
+                margin-bottom: 45px;
+            }
+
+            .project-header h1 {
+                font-size: 43px;
+            }
+
+            .project-hero {
+                aspect-ratio: 4 / 3;
+            }
+
+            .project-content {
+                grid-template-columns: 1fr;
+                gap: 35px;
+                padding: 45px 0 70px;
+            }
+
+            .project-sidebar {
+                display: grid;
+                grid-template-columns: 1fr 1fr;
+                gap: 15px;
+            }
+
+            .project-sidebar p {
+                margin-bottom: 10px;
+            }
+
+            .project-body h2 {
+                font-size: 27px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- NAVIGATION -->
+    <header>
+        <div class="container">
+            <nav>
+                <a href="index.html" class="logo">Mekhi Powell</a>
+
+                <div class="nav-links">
+                    <a href="index.html#about">About</a>
+                    <a href="index.html#projects">Projects</a>
+                    <a href="index.html#experience">Experience</a>
+                    <a href="index.html#resume">Résumé</a>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+
+        <!-- PROJECT TITLE -->
+        <div class="container project-header">
+            <a href="index.html#projects" class="back-link">
+                &larr; Back to Projects
+            </a>
+
+            <div class="project-label" id="project-number">
+                Project
+            </div>
+
+            <h1 id="project-title">Engineering Project</h1>
+
+            <div class="project-subtitle" id="project-subtitle"></div>
+        </div>
+
+        <!-- PROJECT IMAGE -->
+        <div class="container">
+            <div class="project-hero">
+                <img id="project-image" src="" alt="">
+            </div>
+        </div>
+
+        <!-- PROJECT DETAILS -->
+        <div class="container project-content">
+
+            <aside class="project-sidebar">
+                <div>
+                    <strong>Project Date</strong>
+                    <p id="project-date"></p>
+                </div>
+
+                <div>
+                    <strong>Technical Focus</strong>
+                    <p id="project-focus"></p>
+                </div>
+            </aside>
+
+            <div class="project-body">
+
+                <section>
+                    <h2>Project Overview</h2>
+                    <p id="project-overview"></p>
+                </section>
+
+                <section>
+                    <h2>Design &amp; Development</h2>
+                    <ul id="project-highlights"></ul>
+                </section>
+
+                <section>
+                    <h2>Results &amp; Takeaways</h2>
+                    <p id="project-results"></p>
+                </section>
+
+            </div>
+        </div>
+
+        <div class="container next-project">
+            <a href="index.html#projects">
+                &larr; View All Projects
+            </a>
+        </div>
+
+    </main>
+
+    <footer>
+        <div class="container">
+            &copy; 2026 Mekhi Powell · Mechanical Engineering
+        </div>
+    </footer>
+
+    <script>
+        /*
+          PROJECT INFORMATION
+
+          To change a project description later,
+          edit its entry below.
+        */
+
+        const projects = {
+
+            /* PROJECT 01 */
+            charpy: {
+                number: "01",
+                title: "Charpy Impact Tester",
+                subtitle: "Mechanical Design / SolidWorks / Prototyping",
+                date: "February – May 2026",
+                focus: "SolidWorks, Prototyping, Arduino, Instrumentation",
+                image: "charpy-2.webp",
+                imageClass: "",
+
+                overview:
+                    "Designed and prototyped a low-cost Charpy impact testing apparatus to measure energy absorbed during specimen fracture. The project combined mechanical design, fabrication, and electronic instrumentation within a limited materials budget.",
+
+                highlights: [
+                    "Developed SolidWorks models and dimensioned engineering drawings for the frame and instrumentation mounts.",
+                    "Selected materials and designed the mechanical assembly around a $100 project budget.",
+                    "Integrated an Arduino Uno, rotary encoder, and LCD for measurement and display.",
+                    "Fabricated and tested the prototype to evaluate its operation and repeatability."
+                ],
+
+                results:
+                    "Completed a functional impact testing prototype capable of fracturing specimens and producing repeatable measurements. The project reinforced the importance of integrating mechanical design, instrumentation, and experimental calibration."
+            },
+
+            /* PROJECT 02 */
+            nastran: {
+                number: "02",
+                title: "Aircraft Wing Spar Analysis",
+                subtitle: "Finite Element Analysis / Simcenter NASTRAN",
+                date: "2026",
+                focus: "Simcenter Femap, NASTRAN, Structural Analysis",
+                image: "nastran-1.webp",
+                imageClass: "contain",
+
+                overview:
+                    "Evaluated the structural behavior of a wing spar and bracing assembly using finite element analysis. The model represented load-bearing structural members and their response to applied loading and support constraints.",
+
+                highlights: [
+                    "Worked with beam and rod elements to represent spars, braces, and cables.",
+                    "Defined material properties and beam cross-sections, including channel-section geometry.",
+                    "Evaluated displacement, internal member forces, and support reactions using NASTRAN.",
+                    "Compared numerical results with theoretical structural mechanics calculations."
+                ],
+
+                results:
+                    "Compared calculated and simulated structural responses to evaluate model behavior. The analysis demonstrated the importance of appropriate element selection, material definitions, boundary conditions, and numerical validation."
+            },
+
+            /* PROJECT 03 */
+            manatee: {
+                number: "03",
+                title: "Manatee Tag Release & Recovery",
+                subtitle: "Senior Capstone / Mechanical Design",
+                date: "2026 – 2027",
+                focus: "Product Design, Mechanical Systems, Prototyping",
+                image: "manatee.jpg",
+                imageClass: "manatee",
+
+                overview:
+                    "Senior capstone project focused on developing an affordable underwater release and recovery system for behavioral research tags attached to African manatees. The system is intended to detach the research tag without releasing the animal's belt.",
+
+                highlights: [
+                    "Investigating programmable release mechanisms for underwater operation.",
+                    "Considering sediment exposure, freshwater conditions, and entanglement risks in the mechanical design.",
+                    "Developing concepts for a backup release mechanism.",
+                    "Exploring methods to locate and recover detached tags without using a surface buoy."
+                ],
+
+                results:
+                    "This project is in development. The engineering challenge centers on creating a reliable, compact, low-cost mechanism suitable for field conditions while balancing release functionality, animal safety, and tag recovery."
+            },
+
+            /* PROJECT 04 */
+            aero: {
+                number: "04",
+                title: "Aerodynamic Drag Testing",
+                subtitle: "Experimental Testing / Instrumentation",
+                date: "November 2025",
+                focus: "Aerodynamics, Wind Tunnel Testing, Instrumentation",
+                image: "aero-09.jpg",
+                imageClass: "",
+
+                overview:
+                    "Conducted an experimental study of aerodynamic drag using wind tunnel equipment and pressure measurements. The investigation examined how test geometry influences aerodynamic behavior.",
+
+                highlights: [
+                    "Prepared test specimens and experimental equipment for wind tunnel measurements.",
+                    "Used pressure measurement instrumentation, including an inclined manometer.",
+                    "Recorded experimental measurements under different flow conditions.",
+                    "Used measured quantities and geometry to evaluate drag coefficients and compare results."
+                ],
+
+                results:
+                    "The experiment provided hands-on experience with aerodynamic instrumentation, experimental uncertainty, data collection, and the relationship between geometry and drag."
+            },
+
+            /* PROJECT 05 */
+            drone: {
+                number: "05",
+                title: "FPV Drone Frame Optimization",
+                subtitle: "SolidWorks / FEA / Structural Optimization",
+                date: "October 2025",
+                focus: "SolidWorks, Finite Element Analysis, Carbon Fiber",
+                image: "Quadcopter Frame Strain Analysis.png",
+                imageClass: "contain",
+
+                overview:
+                    "Designed and iteratively optimized a lightweight FPV drone frame using finite element analysis to examine structural strain and identify opportunities for improved stiffness and weight efficiency.",
+
+                highlights: [
+                    "Developed a SolidWorks model incorporating orthotropic carbon fiber material properties.",
+                    "Applied representative 45 N motor mounting loads in the structural analysis.",
+                    "Evaluated strain distribution and identified high-strain regions around the frame arms and central hub.",
+                    "Revised the geometry with additional bracing, pocketing, and fillet modifications.",
+                    "Compared the initial and revised frame designs under consistent loading conditions."
+                ],
+
+                results:
+                    "The revised design demonstrated reduced maximum strain in the structural analysis. This project developed practical experience with simulation-driven design iteration and the tradeoffs between structural performance and mass."
+            },
+
+            /* PROJECT 06 */
+            panel: {
+                number: "06",
+                title: "Robotics Operator Control Panel",
+                subtitle: "Onshape / Mechanical Design / Fabrication",
+                date: "January 2023",
+                focus: "Onshape, CAD, Woodworking, Ergonomics",
+                image: "Robotics Control Console CAD Render.png",
+                imageClass: "contain",
+
+                overview:
+                    "Designed and fabricated an operator control panel for a FIRST Robotics Competition robot, integrating a laptop and dual controllers into a compact driver interface.",
+
+                highlights: [
+                    "Modeled the panel in Onshape with manufacturing constraints in mind.",
+                    "Designed mounting positions for the laptop and controllers.",
+                    "Considered operator ergonomics, accessibility, and stable equipment placement.",
+                    "Fabricated and assembled the panel using available workshop tools.",
+                    "Integrated cable routing and quick-disconnect considerations."
+                ],
+
+                results:
+                    "Produced a functional control panel intended to improve operator ergonomics, equipment organization, and ease of setup during robotics competitions."
+            },
+
+            /* PROJECT 07 */
+            frc: {
+                number: "07",
+                title: "FIRST Robotics Competition — Lucy",
+                subtitle: "Manufacturing / Machining / Mechanical Integration",
+                date: "January – April 2023",
+                focus: "Machining, CAD Review, Manufacturing, Assembly",
+                image: "frc-05.webp",
+                imageClass: "",
+
+                overview:
+                    "Supported the fabrication and mechanical integration of a FIRST Robotics Competition robot as part of Team 321. The project involved designing, building, maintaining, and operating a competition-ready robotic system.",
+
+                highlights: [
+                    "Served as Lead Machinist for mechanical component fabrication.",
+                    "Operated mills and lathes to manufacture parts for robot assemblies.",
+                    "Reviewed CAD models for manufacturability, tolerances, and assembly considerations.",
+                    "Collaborated with mechanical, electrical, and drive teams during subsystem integration.",
+                    "Supported mechanical troubleshooting, repairs, and improvements throughout the competition season."
+                ],
+
+                results:
+                    "Contributed to the manufacturing and mechanical reliability of Team 321's competition robot. The experience strengthened practical machining, assembly, problem-solving, and cross-functional teamwork skills."
+            }
+
+        };
+
+        /*
+          LOAD THE SELECTED PROJECT
+        */
+
+        const params = new URLSearchParams(window.location.search);
+        const projectId = params.get("id");
+        const project = projects[projectId];
+
+        if (project) {
+
+            document.title = project.title + " | Mekhi Powell";
+
+            document.getElementById("project-number").textContent =
+                "PROJECT " + project.number;
+
+            document.getElementById("project-title").textContent =
+                project.title;
+
+            document.getElementById("project-subtitle").textContent =
+                project.subtitle;
+
+            document.getElementById("project-date").textContent =
+                project.date;
+
+            document.getElementById("project-focus").textContent =
+                project.focus;
+
+            document.getElementById("project-overview").textContent =
+                project.overview;
+
+            document.getElementById("project-results").textContent =
+                project.results;
+
+            const image = document.getElementById("project-image");
+            image.src = project.image;
+            image.alt = project.title;
+            image.className = project.imageClass;
+
+            const list = document.getElementById("project-highlights");
+
+            project.highlights.forEach(function(highlight) {
+                const item = document.createElement("li");
+                item.textContent = highlight;
+                list.appendChild(item);
+            });
+
+        } else {
+
+            document.getElementById("project-title").textContent =
+                "Project Not Found";
+
+            document.getElementById("project-subtitle").textContent =
+                "Return to the project gallery to select a project.";
+
+            document.querySelector(".project-hero").hidden = true;
+            document.querySelector(".project-content").hidden = true;
+        }
+    </script>
+
+</body>
+</html>
