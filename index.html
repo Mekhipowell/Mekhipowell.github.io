@@ -1,30 +1,32 @@
-
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#242423">
     <meta name="description"
           content="Engineering portfolio of Mekhi Powell, featuring mechanical design, FEA, manufacturing, and prototyping projects.">
+
     <title>Mekhi Powell | Mechanical Engineering</title>
 
-    <!-- GOOGLE FONTS -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:wght@400;500;600;700&display=swap"
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap"
           rel="stylesheet">
 
     <style>
-        /* =========================
-           GENERAL STYLING
-        ========================= */
-
+        /* HARMONY PALETTE */
         :root {
-            --text: #252525;
-            --muted: #717171;
-            --border: #e6e6e6;
-            --surface: #f3f3f3;
+            color-scheme: dark;
+            --sage: #CFDBD5;
+            --cream: #E8EDDF;
+            --yellow: #F5CB5C;
+            --background: #242423;
+            --surface: #333533;
+            --border: rgba(207, 219, 213, 0.18);
+            --muted: #CFDBD5;
+            --heading: "Space Grotesk", Arial, sans-serif;
+            --body: "DM Sans", Arial, sans-serif;
         }
 
         * {
@@ -33,25 +35,26 @@
 
         html {
             scroll-behavior: smooth;
+            scroll-padding-top: 32px;
         }
 
         body {
             margin: 0;
-            background: #ffffff;
-            color: var(--text);
-            font-family: Arial, Helvetica, sans-serif;
+            background: var(--background);
+            color: var(--cream);
+            font-family: var(--body);
             line-height: 1.7;
+            -webkit-font-smoothing: antialiased;
         }
 
-        .container {
-            width: 88%;
-            max-width: 1150px;
-            margin: 0 auto;
+        ::selection {
+            color: var(--background);
+            background: var(--yellow);
         }
 
-        h1, h2, h3 {
-            font-family: 'EB Garamond', Georgia, serif;
-            font-weight: 500;
+        img {
+            display: block;
+            max-width: 100%;
         }
 
         a {
@@ -59,403 +62,839 @@
             text-decoration: none;
         }
 
-        a:hover {
-            color: #777;
-        }
-
         a:focus-visible {
-            outline: 2px solid #252525;
-            outline-offset: 4px;
+            outline: 3px solid var(--yellow);
+            outline-offset: 6px;
         }
 
-        /* =========================
-           NAVIGATION
-        ========================= */
+        h1, h2, h3, p {
+            margin-top: 0;
+        }
 
+        h1, h2, h3 {
+            font-family: var(--heading);
+        }
+
+        .container {
+            width: min(1180px, calc(100% - 64px));
+            margin-inline: auto;
+        }
+
+        .skip-link {
+            position: absolute;
+            top: 12px;
+            left: 12px;
+            z-index: 100;
+            padding: 10px 18px;
+            background: var(--yellow);
+            color: var(--background);
+            transform: translateY(-180%);
+        }
+
+        .skip-link:focus {
+            transform: translateY(0);
+        }
+
+        /* NAVIGATION */
         header {
-            padding: 35px 0;
+            padding-block: 26px;
         }
 
         nav {
             display: flex;
-            justify-content: space-between;
             align-items: center;
-            gap: 20px;
+            justify-content: space-between;
+            gap: 24px;
+            padding-bottom: 24px;
+            border-bottom: 1px solid var(--border);
         }
 
         .logo {
-            font-size: 14px;
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+            font-family: var(--heading);
+            font-size: 16px;
             font-weight: 600;
-            letter-spacing: 2px;
+        }
+
+        .logo-mark {
+            display: grid;
+            place-items: center;
+            width: 38px;
+            height: 38px;
+            border-radius: 50%;
+            color: var(--background);
+            background: var(--yellow);
+            font-size: 13px;
+            font-weight: 700;
+            letter-spacing: -1px;
         }
 
         .nav-links {
             display: flex;
             align-items: center;
             flex-wrap: wrap;
-            gap: 30px;
+            gap: 8px;
         }
 
         .nav-links a {
+            padding: 8px 14px;
+            border-radius: 999px;
+            color: var(--sage);
             font-size: 13px;
-            letter-spacing: 0.5px;
+            transition: background 180ms ease, color 180ms ease;
         }
 
-        /* =========================
-           ABOUT / INTRODUCTION
-        ========================= */
+        .nav-links a:hover {
+            background: var(--surface);
+            color: var(--cream);
+        }
 
+        .nav-links .nav-resume {
+            border: 1px solid var(--border);
+            color: var(--cream);
+        }
+
+        /* HERO */
         .hero {
+            position: relative;
             display: grid;
-            grid-template-columns: repeat(2, minmax(0, 1fr));
-            gap: 90px;
+            grid-template-columns: 1.15fr 0.85fr;
+            gap: clamp(36px, 6vw, 90px);
             align-items: center;
-            padding: 100px 0 135px;
+            padding-block: 70px 90px;
+        }
+
+        .eyebrow {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 24px;
+            color: var(--sage);
+            font-size: 11px;
+            font-weight: 600;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+        }
+
+        .eyebrow::before {
+            content: "";
+            width: 8px;
+            height: 8px;
+            flex-shrink: 0;
+            border-radius: 50%;
+            background: var(--yellow);
+            box-shadow: 0 0 0 5px rgba(245, 203, 92, 0.08);
+        }
+
+        .hero h1 {
+            margin-bottom: 24px;
+            font-size: clamp(64px, 7.8vw, 108px);
+            font-weight: 500;
+            line-height: 0.98;
+            letter-spacing: -0.07em;
+        }
+
+        .hero h1 span {
+            display: block;
+            color: var(--yellow);
+        }
+
+        .hero-statement {
+            max-width: 460px;
+            margin-bottom: 26px;
+            font-family: var(--heading);
+            font-size: clamp(22px, 2.3vw, 30px);
+            line-height: 1.3;
+            letter-spacing: -0.04em;
+        }
+
+        .hero-description {
+            max-width: 520px;
+            margin-bottom: 16px;
+            color: var(--sage);
+            font-size: 14px;
+            line-height: 1.85;
+        }
+
+        .hero-description strong {
+            color: var(--cream);
+            font-weight: 600;
+        }
+
+        .hero-actions {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            gap: 14px;
+            margin-top: 30px;
+        }
+
+        .button {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 24px;
+            min-height: 48px;
+            padding: 12px 22px;
+            border: 1px solid transparent;
+            border-radius: 999px;
+            font-size: 13px;
+            font-weight: 700;
+            transition:
+                transform 180ms ease,
+                background 180ms ease,
+                border-color 180ms ease;
+        }
+
+        .button:hover {
+            transform: translateY(-3px);
+        }
+
+        .button-primary {
+            color: var(--background);
+            background: var(--yellow);
+        }
+
+        .button-primary:hover {
+            background: var(--cream);
+        }
+
+        .button-secondary {
+            color: var(--cream);
+            border-color: var(--border);
+        }
+
+        .button-secondary:hover {
+            border-color: var(--sage);
+            background: var(--surface);
+        }
+
+        .portrait-area {
+            position: relative;
+            min-width: 0;
+            padding: 18px;
+        }
+
+        .portrait-area::before {
+            content: "";
+            position: absolute;
+            inset: 0;
+            border: 1px solid var(--border);
+            border-radius: 140px 24px 24px 24px;
+            transform: rotate(4deg);
+            pointer-events: none;
+        }
+
+        .portrait-frame {
+            position: relative;
+            overflow: hidden;
+            isolation: isolate;
+            border-radius: 130px 16px 16px 16px;
+            background: var(--surface);
+        }
+
+        .portrait-frame::after {
+            content: "";
+            position: absolute;
+            inset: 45% 0 0;
+            z-index: 1;
+            background: linear-gradient(
+                transparent,
+                rgba(36, 36, 35, 0.95)
+            );
+            pointer-events: none;
         }
 
         .portrait {
             width: 100%;
             aspect-ratio: 4 / 5;
-            max-height: 600px;
             object-fit: cover;
             object-position: center;
-            border-radius: 5px;
-            display: block;
         }
 
-        .eyebrow {
-            font-size: 12px;
-            letter-spacing: 2.4px;
-            text-transform: uppercase;
-            color: var(--muted);
-            line-height: 1.8;
+        .portrait-caption {
+            position: absolute;
+            right: 24px;
+            bottom: 24px;
+            left: 24px;
+            z-index: 2;
+            display: flex;
+            justify-content: space-between;
+            align-items: end;
+            gap: 14px;
         }
 
-        .hero h1 {
-            font-size: clamp(40px, 5vw, 62px);
-            line-height: 1.2;
-            letter-spacing: 1px;
-            margin: 30px 0 40px;
-        }
-
-        .hero p {
-            font-size: 15px;
-            color: #505050;
-            line-height: 1.9;
-            margin: 0 0 20px;
-        }
-
-        .text-link {
-            display: inline-block;
-            margin-top: 20px;
+        .portrait-caption p {
+            margin: 0;
+            color: var(--cream);
             font-size: 13px;
-            border-bottom: 1px solid var(--text);
-            padding-bottom: 5px;
+            line-height: 1.5;
         }
 
-        /* =========================
-           SECTION HEADINGS
-        ========================= */
+        .portrait-caption small {
+            display: block;
+            margin-bottom: 6px;
+            color: var(--yellow);
+            font-size: 10px;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+        }
+
+        .portrait-cross {
+            color: var(--yellow);
+            font-family: var(--heading);
+            font-size: 44px;
+            font-weight: 400;
+            line-height: 1;
+        }
+
+        .orbit-badge {
+            position: absolute;
+            top: 0;
+            right: -8px;
+            z-index: 3;
+            display: grid;
+            place-items: center;
+            width: 100px;
+            height: 100px;
+            border: 8px solid var(--background);
+            border-radius: 50%;
+            background: var(--yellow);
+            color: var(--background);
+            transform: rotate(12deg);
+        }
+
+        .orbit-badge span {
+            font-family: var(--heading);
+            font-size: 11px;
+            font-weight: 700;
+            line-height: 1.4;
+            letter-spacing: 1px;
+            text-align: center;
+            text-transform: uppercase;
+        }
+
+        .portrait-note {
+            display: flex;
+            justify-content: space-between;
+            gap: 12px;
+            padding-top: 20px;
+            color: var(--sage);
+            font-family: monospace;
+            font-size: 10px;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+
+        /* ENGINEERING DISCIPLINES */
+        .discipline-strip {
+            border-top: 1px solid var(--border);
+            border-bottom: 1px solid var(--border);
+            background: var(--surface);
+        }
+
+        .discipline-list {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            gap: 18px 26px;
+            padding-block: 22px;
+        }
+
+        .discipline-list span {
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+            font-family: var(--heading);
+            font-size: 13px;
+            font-weight: 500;
+        }
+
+        .discipline-list span::before {
+            content: "+";
+            color: var(--yellow);
+            font-size: 22px;
+            line-height: 1;
+        }
+
+        /* SECTION HEADINGS */
+        .projects,
+        .experience {
+            padding-block: 100px 20px;
+        }
 
         .section-top {
             display: flex;
             justify-content: space-between;
             align-items: end;
-            gap: 20px;
-            border-bottom: 1px solid var(--border);
-            padding-bottom: 22px;
-            margin-bottom: 45px;
+            gap: 24px;
+            margin-bottom: 36px;
+        }
+
+        .section-label {
+            display: block;
+            margin-bottom: 10px;
+            color: var(--yellow);
+            font-family: monospace;
+            font-size: 11px;
+            letter-spacing: 2px;
+            text-transform: uppercase;
         }
 
         .section-top h2 {
-            font-size: 30px;
             margin: 0;
+            font-size: clamp(34px, 4.5vw, 54px);
+            font-weight: 500;
+            line-height: 1.1;
+            letter-spacing: -0.055em;
         }
 
-        .section-top span {
-            font-size: 13px;
-            color: var(--muted);
+        .section-meta {
+            color: var(--sage);
+            font-size: 12px;
+            text-align: right;
         }
 
-        /* =========================
-           PROJECT GALLERY
-        ========================= */
-
-        .projects {
-            padding: 35px 0 120px;
-        }
-
+        /* PROJECT CARDS */
         .project-grid {
             display: grid;
             grid-template-columns: repeat(2, minmax(0, 1fr));
-            gap: 60px 30px;
+            gap: 28px;
         }
 
         .project {
             min-width: 0;
         }
 
-        /* Entire card is clickable */
         .project-link {
-            display: block;
-            color: inherit;
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+            overflow: hidden;
+            border: 1px solid var(--border);
+            border-radius: 18px;
+            background: var(--surface);
+            transition:
+                transform 220ms ease,
+                border-color 220ms ease,
+                box-shadow 220ms ease;
+        }
+
+        .project-link:hover {
+            transform: translateY(-6px);
+            border-color: var(--yellow);
+            box-shadow: 0 18px 36px rgba(0, 0, 0, 0.16);
         }
 
         .project-image {
-            width: 100%;
-            aspect-ratio: 4 / 3;
-            background: var(--surface);
             position: relative;
-            border-radius: 4px;
             overflow: hidden;
+            aspect-ratio: 4 / 3;
+            background: var(--cream);
         }
 
         .project-image img {
-            position: absolute;
-            inset: 0;
             width: 100%;
             height: 100%;
             object-fit: cover;
-            display: block;
-            transition: transform 0.3s ease;
+            transition: transform 400ms ease;
         }
 
         .project-link:hover .project-image img {
-            transform: scale(1.03);
+            transform: scale(1.04);
         }
 
-        .project-link:hover h3 {
-            color: #666;
-        }
-
-        /* NASTRAN image */
         .project-image img.nastran-image {
+            padding: 16px;
             object-fit: contain;
             object-position: center;
-            padding: 15px;
-            background: var(--surface);
+            background: var(--cream);
         }
 
-        /* Manatee image */
         .project-image img.manatee-image {
-            object-fit: cover;
             object-position: 35% center;
         }
 
-        /* FPV Drone image */
         .project-image.fpv-fit img {
             object-fit: contain;
             object-position: center;
-            background: #e9e9e9;
+            background: var(--cream);
         }
 
-        /* Project numbers */
         .project-number {
             position: absolute;
-            top: 18px;
-            left: 18px;
-            z-index: 2;
-
-            background: rgba(255, 255, 255, 0.90);
-            color: #252525;
-
-            padding: 6px 13px;
-            border-radius: 3px;
-
+            top: 16px;
+            left: 16px;
+            display: grid;
+            place-items: center;
+            width: 38px;
+            height: 38px;
+            border: 1px solid rgba(232, 237, 223, 0.25);
+            border-radius: 50%;
+            background: var(--background);
+            color: var(--yellow);
+            font-family: monospace;
             font-size: 12px;
-            font-weight: 600;
-            letter-spacing: 1px;
+        }
+
+        .project-copy {
+            display: grid;
+            grid-template-columns: minmax(0, 1fr) 40px;
+            gap: 8px 16px;
+            align-items: center;
+            padding: 24px;
         }
 
         .project h3 {
-            font-size: 20px;
-            margin: 20px 0 4px;
-            transition: color 0.2s ease;
+            margin: 0;
+            font-size: clamp(20px, 2vw, 25px);
+            font-weight: 500;
+            line-height: 1.25;
+            letter-spacing: -0.04em;
         }
 
         .project p {
-            color: var(--muted);
-            font-size: 13px;
+            grid-column: 1;
             margin: 0;
+            color: var(--sage);
+            font-size: 12px;
+            line-height: 1.7;
         }
 
-        /* =========================
-           EXPERIENCE SECTION
-        ========================= */
+        .project-arrow {
+            grid-column: 2;
+            grid-row: 1 / 3;
+            display: grid;
+            place-items: center;
+            width: 40px;
+            height: 40px;
+            border: 1px solid var(--border);
+            border-radius: 50%;
+            color: var(--yellow);
+            font-size: 21px;
+            transition: background 180ms ease, color 180ms ease;
+        }
 
-        .experience {
-            padding: 40px 0 110px;
+        .project-link:hover .project-arrow {
+            background: var(--yellow);
+            color: var(--background);
+        }
+
+        .project:last-child {
+            grid-column: 1 / -1;
+        }
+
+        .project:last-child .project-link {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            align-items: center;
+        }
+
+        .project:last-child .project-copy {
+            padding: clamp(24px, 4vw, 48px);
+        }
+
+        .project:last-child h3 {
+            font-size: clamp(25px, 3vw, 38px);
+        }
+
+        /* EXPERIENCE */
+        .experience-list {
+            border-top: 1px solid var(--border);
         }
 
         .experience-item {
             display: grid;
-            grid-template-columns: 45px minmax(0, 1fr) 140px;
-            gap: 25px;
+            grid-template-columns: 48px minmax(0, 1fr) 145px;
+            gap: 28px;
             align-items: start;
-            padding: 35px 0;
+            padding-block: 34px;
             border-bottom: 1px solid var(--border);
         }
 
         .experience-number {
-            display: inline-block;
-            width: fit-content;
-            padding: 5px 11px;
-            background: var(--surface);
-            border-radius: 3px;
+            display: grid;
+            place-items: center;
+            width: 38px;
+            height: 38px;
+            border: 1px solid var(--border);
+            border-radius: 50%;
+            color: var(--yellow);
+            font-family: monospace;
             font-size: 12px;
-            font-weight: 600;
         }
 
         .experience-info {
-            max-width: 700px;
             min-width: 0;
+            max-width: 720px;
         }
 
-        .experience-item h3 {
-            font-size: 25px;
-            margin: 0 0 8px;
+        .experience-info h3 {
+            margin-bottom: 8px;
+            font-size: clamp(22px, 2.4vw, 28px);
+            font-weight: 500;
+            line-height: 1.3;
+            letter-spacing: -0.04em;
         }
 
         .experience-company {
-            font-size: 14px;
-            color: #444;
-            margin: 0 0 14px;
+            margin-bottom: 14px;
+            color: var(--yellow);
+            font-size: 13px;
         }
 
         .experience-description {
-            font-size: 14px;
-            line-height: 1.8;
-            color: var(--muted);
             margin: 0;
+            color: var(--sage);
+            font-size: 14px;
+            line-height: 1.85;
         }
 
         .experience-date {
+            padding-top: 7px;
+            color: var(--sage);
+            font-family: monospace;
+            font-size: 12px;
             text-align: right;
-            white-space: nowrap;
-            font-size: 13px;
-            color: var(--muted);
-            padding-top: 6px;
         }
 
-        /* =========================
-           RESUME
-        ========================= */
-
+        /* RESUME */
         .resume {
-            padding: 65px 0 100px;
-            border-top: 1px solid var(--border);
+            padding-block: 90px;
+        }
+
+        .resume-panel {
+            position: relative;
+            isolation: isolate;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 36px;
+            overflow: hidden;
+            padding: clamp(28px, 5vw, 60px);
+            border: 1px solid var(--border);
+            border-radius: 22px;
+            background: var(--surface);
+        }
+
+        .resume-panel::after {
+            content: "+";
+            position: absolute;
+            top: -95px;
+            right: 80px;
+            z-index: -1;
+            color: rgba(245, 203, 92, 0.06);
+            font-family: var(--heading);
+            font-size: 380px;
+            line-height: 1;
+            pointer-events: none;
+        }
+
+        .resume-copy {
+            max-width: 600px;
         }
 
         .resume h2 {
-            font-size: 30px;
-            margin: 0;
+            margin-bottom: 16px;
+            font-size: clamp(36px, 4vw, 52px);
+            font-weight: 500;
+            line-height: 1.1;
+            letter-spacing: -0.055em;
         }
 
         .resume p {
-            color: var(--muted);
-            max-width: 650px;
-            font-size: 15px;
+            max-width: 490px;
+            margin-bottom: 0;
+            color: var(--sage);
+            font-size: 14px;
         }
 
-        /* =========================
-           FOOTER
-        ========================= */
+        .resume .button {
+            flex-shrink: 0;
+        }
 
+        /* FOOTER */
         footer {
-            border-top: 1px solid var(--border);
-            padding: 30px 0 45px;
+            padding-bottom: 32px;
         }
 
         .footer-content {
             display: flex;
             justify-content: space-between;
-            gap: 20px;
-            color: var(--muted);
-            font-size: 12px;
+            flex-wrap: wrap;
+            gap: 14px 24px;
+            padding-top: 24px;
+            border-top: 1px solid var(--border);
+            color: var(--sage);
+            font-size: 11px;
         }
 
-        /* =========================
-           MOBILE RESPONSIVENESS
-        ========================= */
+        .back-to-top {
+            color: var(--yellow);
+        }
 
-        @media (max-width: 768px) {
+        /* TABLET */
+        @media (max-width: 960px) {
+            .hero {
+                gap: 30px;
+                padding-block: 50px 65px;
+            }
 
+            .hero h1 {
+                font-size: clamp(62px, 8.5vw, 82px);
+            }
+
+            .portrait-area {
+                padding: 12px;
+            }
+
+            .orbit-badge {
+                width: 86px;
+                height: 86px;
+                right: -2px;
+            }
+
+            .portrait-caption {
+                right: 18px;
+                bottom: 18px;
+                left: 18px;
+            }
+
+            .discipline-list {
+                justify-content: center;
+            }
+
+            .resume-panel {
+                align-items: flex-start;
+                flex-direction: column;
+            }
+        }
+
+        /* MOBILE */
+        @media (max-width: 700px) {
             .container {
-                width: 90%;
+                width: calc(100% - 36px);
             }
 
             header {
-                padding: 25px 0;
+                padding-block: 20px 0;
             }
 
             nav {
-                flex-wrap: wrap;
-            }
-
-            .logo {
-                font-size: 12px;
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 16px;
+                padding-bottom: 18px;
             }
 
             .nav-links {
-                gap: 15px;
+                width: 100%;
+                gap: 4px;
             }
 
             .nav-links a {
+                padding: 8px 11px;
                 font-size: 12px;
             }
 
             .hero {
                 grid-template-columns: 1fr;
                 gap: 40px;
-                padding: 45px 0 90px;
-            }
-
-            .portrait {
-                max-height: 550px;
+                padding-block: 42px 48px;
             }
 
             .hero h1 {
-                font-size: 42px;
-                margin: 18px 0 25px;
+                font-size: clamp(64px, 15vw, 94px);
             }
 
-            .projects {
-                padding: 20px 0 80px;
+            .eyebrow {
+                font-size: 10px;
+                letter-spacing: 1.6px;
+            }
+
+            .hero-description {
+                max-width: none;
+            }
+
+            .portrait-area {
+                width: min(100%, 440px);
+                margin-inline: auto;
+                padding: 14px;
+            }
+
+            .portrait {
+                max-height: 510px;
+            }
+
+            .discipline-list {
+                display: grid;
+                grid-template-columns: 1fr 1fr;
+                gap: 16px 12px;
+            }
+
+            .discipline-list span {
+                gap: 8px;
+                font-size: 11px;
+            }
+
+            .projects,
+            .experience {
+                padding-top: 65px;
+            }
+
+            .section-top {
+                align-items: flex-start;
+                flex-direction: column;
+                gap: 14px;
+                margin-bottom: 26px;
+            }
+
+            .section-meta {
+                text-align: left;
             }
 
             .project-grid {
                 grid-template-columns: 1fr;
-                gap: 40px;
+                gap: 24px;
             }
 
-            .section-top h2 {
-                font-size: 25px;
+            .project:last-child {
+                grid-column: auto;
             }
 
-            .section-top span {
-                font-size: 11px;
+            .project:last-child .project-link {
+                display: flex;
             }
 
-            .experience {
-                padding: 20px 0 70px;
+            .project-copy,
+            .project:last-child .project-copy {
+                width: 100%;
+                padding: 22px;
+            }
+
+            .project h3,
+            .project:last-child h3 {
+                font-size: 23px;
             }
 
             .experience-item {
                 grid-template-columns: 38px minmax(0, 1fr);
-                gap: 15px;
-                padding: 26px 0;
+                gap: 12px 16px;
+                padding-block: 26px;
             }
 
             .experience-number {
                 grid-column: 1;
-                grid-row: 1;
+                grid-row: 1 / 3;
             }
 
             .experience-date {
                 grid-column: 2;
                 grid-row: 1;
+                padding-top: 0;
                 text-align: left;
-                padding-top: 4px;
             }
 
             .experience-info {
@@ -463,13 +902,17 @@
                 grid-row: 2;
             }
 
-            .experience-item h3 {
-                font-size: 22px;
+            .resume {
+                padding-block: 60px;
+            }
+
+            .resume-panel {
+                gap: 26px;
             }
 
             .footer-content {
                 flex-direction: column;
-                gap: 5px;
+                gap: 8px;
             }
         }
 
@@ -478,64 +921,68 @@
                 scroll-behavior: auto;
             }
 
-            .project-image img {
-                transition: none;
+            *,
+            *::before,
+            *::after {
+                transition: none !important;
+                animation: none !important;
+            }
+
+            .button:hover,
+            .project-link:hover,
+            .project-link:hover .project-image img {
+                transform: none;
             }
         }
     </style>
 </head>
 
-<body>
+<body id="top">
+    <a class="skip-link" href="#main">Skip to content</a>
 
-    <!-- =========================
-         NAVIGATION
-    ========================= -->
     <header>
         <div class="container">
             <nav aria-label="Main navigation">
-                <a href="#about" class="logo">Mekhi Powell</a>
+                <a href="#about" class="logo">
+                    <span class="logo-mark" aria-hidden="true">MP</span>
+                    Mekhi Powell
+                </a>
 
                 <div class="nav-links">
                     <a href="#about">About</a>
                     <a href="#projects">Projects</a>
                     <a href="#experience">Experience</a>
-                    <a href="#resume">Résumé</a>
+                    <a href="#resume" class="nav-resume">
+                        Résumé <span aria-hidden="true">↗</span>
+                    </a>
                 </div>
             </nav>
         </div>
     </header>
 
-    <main>
-
-        <!-- =========================
-             ABOUT ME
-        ========================= -->
-        <section class="container hero" id="about">
-
-            <div>
-                <img
-                    src="Smiling%20Man%20by%20the%20Waterfront.png"
-                    alt="Portrait of Mekhi Powell"
-                    class="portrait"
-                >
-            </div>
-
+    <main id="main">
+        <!-- ABOUT / HERO -->
+        <section class="container hero" id="about"
+                 aria-labelledby="hero-title">
             <div class="hero-content">
-
                 <div class="eyebrow">
-                    Senior Mechanical Engineering Student<br>
-                    At Florida Polytechnic University
+                    Senior Mechanical Engineering Student
                 </div>
 
-                <h1>Mekhi Powell</h1>
+                <h1 id="hero-title">Mekhi <span>Powell.</span></h1>
 
-                <p>
-                    Hello, I'm Mekhi! I'm a Mechanical Engineering
-                    student at Florida Polytechnic University,
-                    graduating in May 2027.
+                <p class="hero-statement">
+                    Curious by nature.<br>
+                    Hands-on by design.
                 </p>
 
-                <p>
+                <p class="hero-description">
+                    Hello, I'm Mekhi! I'm a Mechanical Engineering
+                    student at <strong>Florida Polytechnic University</strong>,
+                    graduating in <strong>May 2027</strong>.
+                </p>
+
+                <p class="hero-description">
                     I enjoy building things, solving problems,
                     and understanding how things work.
                     My engineering interests include mechanical
@@ -543,246 +990,321 @@
                     and product development.
                 </p>
 
-                <p>
+                <p class="hero-description">
                     Outside of engineering, I enjoy weightlifting,
                     car/motorcycle culture, cycling, photography,
                     and fashion.
                 </p>
 
-                <a href="#projects" class="text-link">
-                    Explore My Work &darr;
-                </a>
+                <div class="hero-actions">
+                    <a href="#projects" class="button button-primary">
+                        Explore My Work
+                        <span aria-hidden="true">↘</span>
+                    </a>
+                    <a href="#experience" class="button button-secondary">
+                        My Experience
+                        <span aria-hidden="true">↓</span>
+                    </a>
+                </div>
+            </div>
 
+            <div class="portrait-area">
+                <div class="orbit-badge" aria-hidden="true">
+                    <span>Design.<br>Build.<br>Refine.</span>
+                </div>
+
+                <div class="portrait-frame">
+                    <img
+                        src="Smiling%20Man%20by%20the%20Waterfront.png"
+                        alt="Portrait of Mekhi Powell"
+                        class="portrait"
+                        fetchpriority="high"
+                    >
+
+                    <div class="portrait-caption">
+                        <p>
+                            <small>Mechanical Engineering</small>
+                            Florida Polytechnic University<br>
+                            Class of 2027
+                        </p>
+                        <span class="portrait-cross" aria-hidden="true">+</span>
+                    </div>
+                </div>
+
+                <div class="portrait-note" aria-hidden="true">
+                    <span>Ideas → Analysis → Making</span>
+                    <span>MP / 2026</span>
+                </div>
             </div>
         </section>
 
-        <!-- =========================
-             PROJECT GALLERY
-        ========================= -->
-        <section class="container projects" id="projects">
+        <div class="discipline-strip">
+            <div class="container discipline-list"
+                 aria-label="Engineering interests">
+                <span>Mechanical Design</span>
+                <span>Structural Analysis</span>
+                <span>Manufacturing</span>
+                <span>Product Development</span>
+            </div>
+        </div>
 
+        <!-- PROJECTS -->
+        <section class="container projects" id="projects"
+                 aria-labelledby="projects-title">
             <div class="section-top">
-                <h2>Selected Projects</h2>
-                <span>Engineering Portfolio</span>
+                <div>
+                    <span class="section-label">01 / Selected Work</span>
+                    <h2 id="projects-title">Built on curiosity.</h2>
+                </div>
+                <span class="section-meta">
+                    Engineering Portfolio<br>
+                    07 Selected Projects
+                </span>
             </div>
 
             <div class="project-grid">
-
-                <!-- PROJECT 01: CHARPY -->
                 <article class="project">
                     <a href="project.html?id=charpy" class="project-link">
                         <div class="project-image">
-                            <img src="charpy-2.webp"
-                                 alt="Charpy Impact Tester prototype"
-                                 loading="lazy">
-                            <span class="project-number">01</span>
+                            <img
+                                src="charpy-2.webp"
+                                alt="Charpy Impact Tester prototype"
+                                loading="lazy"
+                                decoding="async"
+                            >
+                            <span class="project-number" aria-hidden="true">01</span>
                         </div>
-                        <h3>Charpy Impact Tester</h3>
-                        <p>Mechanical Design / SolidWorks / Prototyping</p>
+                        <div class="project-copy">
+                            <h3>Charpy Impact Tester</h3>
+                            <p>Mechanical Design / SolidWorks / Prototyping</p>
+                            <span class="project-arrow" aria-hidden="true">↗</span>
+                        </div>
                     </a>
                 </article>
 
-                <!-- PROJECT 02: NASTRAN -->
                 <article class="project">
                     <a href="project.html?id=nastran" class="project-link">
                         <div class="project-image">
-                            <img src="nastran-1.webp"
-                                 alt="Aircraft Wing Spar Finite Element Analysis"
-                                 class="nastran-image"
-                                 loading="lazy">
-                            <span class="project-number">02</span>
+                            <img
+                                src="nastran-1.webp"
+                                alt="Aircraft Wing Spar Finite Element Analysis"
+                                class="nastran-image"
+                                loading="lazy"
+                                decoding="async"
+                            >
+                            <span class="project-number" aria-hidden="true">02</span>
                         </div>
-                        <h3>Aircraft Wing Spar Analysis</h3>
-                        <p>Finite Element Analysis / Simcenter NASTRAN</p>
+                        <div class="project-copy">
+                            <h3>Aircraft Wing Spar Analysis</h3>
+                            <p>Finite Element Analysis / Simcenter NASTRAN</p>
+                            <span class="project-arrow" aria-hidden="true">↗</span>
+                        </div>
                     </a>
                 </article>
 
-                <!-- PROJECT 03: CAPSTONE -->
                 <article class="project">
                     <a href="project.html?id=manatee" class="project-link">
                         <div class="project-image">
-                            <img src="manatee.jpg"
-                                 alt="Manatee with an attached research tag"
-                                 class="manatee-image"
-                                 loading="lazy">
-                            <span class="project-number">03</span>
+                            <img
+                                src="manatee.jpg"
+                                alt="Manatee with an attached research tag"
+                                class="manatee-image"
+                                loading="lazy"
+                                decoding="async"
+                            >
+                            <span class="project-number" aria-hidden="true">03</span>
                         </div>
-                        <h3>Manatee Tag Release &amp; Recovery</h3>
-                        <p>Senior Capstone / Mechanical Design</p>
+                        <div class="project-copy">
+                            <h3>Manatee Tag Release &amp; Recovery</h3>
+                            <p>Senior Capstone / Mechanical Design</p>
+                            <span class="project-arrow" aria-hidden="true">↗</span>
+                        </div>
                     </a>
                 </article>
 
-                <!-- PROJECT 04: AERODYNAMICS -->
                 <article class="project">
                     <a href="project.html?id=aero" class="project-link">
                         <div class="project-image">
-                            <img src="aero-09.jpg"
-                                 alt="Aerodynamic testing project equipment"
-                                 loading="lazy">
-                            <span class="project-number">04</span>
+                            <img
+                                src="aero-09.jpg"
+                                alt="Aerodynamic testing project equipment"
+                                loading="lazy"
+                                decoding="async"
+                            >
+                            <span class="project-number" aria-hidden="true">04</span>
                         </div>
-                        <h3>Aerodynamic Drag Testing</h3>
-                        <p>Experimental Testing / Instrumentation</p>
+                        <div class="project-copy">
+                            <h3>Aerodynamic Drag Testing</h3>
+                            <p>Experimental Testing / Instrumentation</p>
+                            <span class="project-arrow" aria-hidden="true">↗</span>
+                        </div>
                     </a>
                 </article>
 
-                <!-- PROJECT 05: FPV DRONE -->
                 <article class="project">
                     <a href="project.html?id=drone" class="project-link">
                         <div class="project-image fpv-fit">
-                            <img src="Quadcopter%20Frame%20Strain%20Analysis.png"
-                                 alt="FPV Drone Frame Strain Analysis"
-                                 loading="lazy">
-                            <span class="project-number">05</span>
+                            <img
+                                src="Quadcopter%20Frame%20Strain%20Analysis.png"
+                                alt="FPV Drone Frame Strain Analysis"
+                                loading="lazy"
+                                decoding="async"
+                            >
+                            <span class="project-number" aria-hidden="true">05</span>
                         </div>
-                        <h3>FPV Drone Frame Optimization</h3>
-                        <p>SolidWorks / FEA / Structural Optimization</p>
+                        <div class="project-copy">
+                            <h3>FPV Drone Frame Optimization</h3>
+                            <p>SolidWorks / FEA / Structural Optimization</p>
+                            <span class="project-arrow" aria-hidden="true">↗</span>
+                        </div>
                     </a>
                 </article>
 
-                <!-- PROJECT 06: CONTROL PANEL -->
                 <article class="project">
                     <a href="project.html?id=panel" class="project-link">
                         <div class="project-image">
-                            <img src="Robotics%20Control%20Console%20CAD%20Render.png"
-                                 alt="Robotics Operator Control Panel CAD model"
-                                 loading="lazy">
-                            <span class="project-number">06</span>
+                            <img
+                                src="Robotics%20Control%20Console%20CAD%20Render.png"
+                                alt="Robotics Operator Control Panel CAD model"
+                                loading="lazy"
+                                decoding="async"
+                            >
+                            <span class="project-number" aria-hidden="true">06</span>
                         </div>
-                        <h3>Robotics Operator Control Panel</h3>
-                        <p>Onshape / Mechanical Design / Fabrication</p>
+                        <div class="project-copy">
+                            <h3>Robotics Operator Control Panel</h3>
+                            <p>Onshape / Mechanical Design / Fabrication</p>
+                            <span class="project-arrow" aria-hidden="true">↗</span>
+                        </div>
                     </a>
                 </article>
 
-                <!-- PROJECT 07: FIRST ROBOTICS -->
                 <article class="project">
                     <a href="project.html?id=frc" class="project-link">
                         <div class="project-image">
-                            <img src="frc-05.webp"
-                                 alt="FIRST Robotics Competition robot Lucy"
-                                 loading="lazy">
-                            <span class="project-number">07</span>
+                            <img
+                                src="frc-05.webp"
+                                alt="FIRST Robotics Competition robot Lucy"
+                                loading="lazy"
+                                decoding="async"
+                            >
+                            <span class="project-number" aria-hidden="true">07</span>
                         </div>
-                        <h3>FIRST Robotics Competition — Lucy</h3>
-                        <p>Manufacturing / Machining / Mechanical Integration</p>
+                        <div class="project-copy">
+                            <h3>FIRST Robotics Competition — Lucy</h3>
+                            <p>Manufacturing / Machining / Mechanical Integration</p>
+                            <span class="project-arrow" aria-hidden="true">↗</span>
+                        </div>
                     </a>
                 </article>
-
             </div>
         </section>
 
-        <!-- =========================
-             EXPERIENCE
-        ========================= -->
-        <section class="container experience" id="experience">
-
+        <!-- EXPERIENCE -->
+        <section class="container experience" id="experience"
+                 aria-labelledby="experience-title">
             <div class="section-top">
-                <h2>Experience</h2>
-                <span>Professional &amp; Technical</span>
-            </div>
-
-            <!-- EXPERIENCE 01 -->
-            <div class="experience-item">
-                <span class="experience-number">01</span>
-
-                <div class="experience-info">
-                    <h3>STEM Instructional Intern</h3>
-
-                    <p class="experience-company">
-                        TechCORE2 / Urban League of Philadelphia
-                    </p>
-
-                    <p class="experience-description">
-                        Introduced CAD instruction and developed
-                        hands-on engineering lessons covering CAD,
-                        Python, AI, and design for manufacturing.
-                        Collaborated with fellow interns to support
-                        classroom operations.
-                    </p>
+                <div>
+                    <span class="section-label">02 / Along the Way</span>
+                    <h2 id="experience-title">Experience.</h2>
                 </div>
-
-                <span class="experience-date">Summer 2026</span>
+                <span class="section-meta">Professional &amp; Technical</span>
             </div>
 
-            <!-- EXPERIENCE 02 -->
-            <div class="experience-item">
-                <span class="experience-number">02</span>
+            <div class="experience-list">
+                <article class="experience-item">
+                    <span class="experience-number" aria-hidden="true">01</span>
 
-                <div class="experience-info">
-                    <h3>University Event Services</h3>
+                    <div class="experience-info">
+                        <h3>STEM Instructional Intern</h3>
+                        <p class="experience-company">
+                            TechCORE2 / Urban League of Philadelphia
+                        </p>
+                        <p class="experience-description">
+                            Introduced CAD instruction and developed
+                            hands-on engineering lessons covering CAD,
+                            Python, AI, and design for manufacturing.
+                            Collaborated with fellow interns to support
+                            classroom operations.
+                        </p>
+                    </div>
 
-                    <p class="experience-company">
-                        Florida Polytechnic University
-                    </p>
+                    <span class="experience-date">Summer 2026</span>
+                </article>
 
-                    <p class="experience-description">
-                        Support campus event setup and teardown,
-                        arrange equipment and event spaces,
-                        and communicate directly with event
-                        organizers to accommodate their needs
-                        and ensure smooth event operations.
-                    </p>
-                </div>
+                <article class="experience-item">
+                    <span class="experience-number" aria-hidden="true">02</span>
 
-                <span class="experience-date">2026 – Present</span>
+                    <div class="experience-info">
+                        <h3>University Event Services</h3>
+                        <p class="experience-company">
+                            Florida Polytechnic University
+                        </p>
+                        <p class="experience-description">
+                            Support campus event setup and teardown,
+                            arrange equipment and event spaces,
+                            and communicate directly with event
+                            organizers to accommodate their needs
+                            and ensure smooth event operations.
+                        </p>
+                    </div>
+
+                    <span class="experience-date">2026 – Present</span>
+                </article>
+
+                <article class="experience-item">
+                    <span class="experience-number" aria-hidden="true">03</span>
+
+                    <div class="experience-info">
+                        <h3>Lead Machinist</h3>
+                        <p class="experience-company">
+                            FIRST Robotics Competition / Team 321
+                        </p>
+                        <p class="experience-description">
+                            Manufactured and integrated competition
+                            robot components, collaborating across
+                            mechanical, CAD, and electrical teams
+                            to resolve fabrication and assembly issues.
+                        </p>
+                    </div>
+
+                    <span class="experience-date">2023</span>
+                </article>
             </div>
-
-            <!-- EXPERIENCE 03 -->
-            <div class="experience-item">
-                <span class="experience-number">03</span>
-
-                <div class="experience-info">
-                    <h3>Lead Machinist</h3>
-
-                    <p class="experience-company">
-                        FIRST Robotics Competition / Team 321
-                    </p>
-
-                    <p class="experience-description">
-                        Manufactured and integrated competition
-                        robot components, collaborating across
-                        mechanical, CAD, and electrical teams
-                        to resolve fabrication and assembly issues.
-                    </p>
-                </div>
-
-                <span class="experience-date">2023</span>
-            </div>
-
         </section>
 
-        <!-- =========================
-             RESUME
-        ========================= -->
-        <section class="container resume" id="resume">
+        <!-- RESUME -->
+        <section class="container resume" id="resume"
+                 aria-labelledby="resume-title">
+            <div class="resume-panel">
+                <div class="resume-copy">
+                    <span class="section-label">03 / The Full Picture</span>
+                    <h2 id="resume-title">My résumé.</h2>
+                    <p>
+                        My experience includes mechanical design,
+                        CAD modeling, structural analysis,
+                        prototyping, and engineering education.
+                    </p>
+                </div>
 
-            <h2>Résumé</h2>
-
-            <p>
-                My experience includes mechanical design,
-                CAD modeling, structural analysis,
-                prototyping, and engineering education.
-            </p>
-
-            <a href="resume.pdf" download class="text-link">
-                Download Résumé &darr;
-            </a>
-
+                <a href="resume.pdf" download class="button button-primary">
+                    Download Résumé
+                    <span aria-hidden="true">↓</span>
+                </a>
+            </div>
         </section>
-
     </main>
 
-    <!-- =========================
-         FOOTER
-    ========================= -->
     <footer>
         <div class="container footer-content">
             <span>&copy; 2026 Mekhi Powell</span>
             <span>
                 Mechanical Engineering · Florida Polytechnic University
             </span>
+            <a href="#top" class="back-to-top">
+                Back to top <span aria-hidden="true">↑</span>
+            </a>
         </div>
     </footer>
-
 </body>
 </html>
