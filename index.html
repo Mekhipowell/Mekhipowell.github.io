@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="theme-color" content="#333333">
+    <meta name="theme-color" content="#242423">
     <meta name="description"
           content="Engineering portfolio of Mekhi Powell, featuring mechanical design, FEA, manufacturing, and prototyping projects.">
 
@@ -15,16 +15,16 @@
           rel="stylesheet">
 
     <style>
-        /* MIDNIGHT MADNESS */
+        /* HARMONY PALETTE */
         :root {
             color-scheme: dark;
-            --white: #F6F6F6;
-            --light: #E8E8E8;
-            --background: #333333;
-            --red-dark: #990100;
-            --red: #B90504;
-            --surface: rgba(246, 246, 246, 0.035);
-            --border: rgba(232, 232, 232, 0.18);
+            --sage: #CFDBD5;
+            --cream: #E8EDDF;
+            --yellow: #F5CB5C;
+            --background: #242423;
+            --surface: #333533;
+            --border: rgba(207, 219, 213, 0.18);
+            --muted: #CFDBD5;
             --heading: "Space Grotesk", Arial, sans-serif;
             --body: "DM Sans", Arial, sans-serif;
         }
@@ -35,21 +35,21 @@
 
         html {
             scroll-behavior: smooth;
-            scroll-padding-top: 24px;
+            scroll-padding-top: 32px;
         }
 
         body {
             margin: 0;
             background: var(--background);
-            color: var(--white);
+            color: var(--cream);
             font-family: var(--body);
             line-height: 1.7;
             -webkit-font-smoothing: antialiased;
         }
 
         ::selection {
-            color: var(--white);
-            background: var(--red);
+            color: var(--background);
+            background: var(--yellow);
         }
 
         img {
@@ -63,16 +63,16 @@
         }
 
         a:focus-visible {
-            outline: 3px solid var(--white);
-            outline-offset: 5px;
-        }
-
-        h1, h2, h3 {
-            font-family: var(--heading);
+            outline: 3px solid var(--yellow);
+            outline-offset: 6px;
         }
 
         h1, h2, h3, p {
             margin-top: 0;
+        }
+
+        h1, h2, h3 {
+            font-family: var(--heading);
         }
 
         .container {
@@ -86,8 +86,8 @@
             left: 12px;
             z-index: 100;
             padding: 10px 18px;
-            color: var(--white);
-            background: var(--red);
+            background: var(--yellow);
+            color: var(--background);
             transform: translateY(-180%);
         }
 
@@ -121,12 +121,12 @@
         .logo-mark {
             display: grid;
             place-items: center;
-            width: 40px;
-            height: 40px;
-            border-radius: 10px 2px 10px 2px;
-            color: var(--white);
-            background: var(--red);
-            font-size: 14px;
+            width: 38px;
+            height: 38px;
+            border-radius: 50%;
+            color: var(--background);
+            background: var(--yellow);
+            font-size: 13px;
             font-weight: 700;
             letter-spacing: -1px;
         }
@@ -135,89 +135,77 @@
             display: flex;
             align-items: center;
             flex-wrap: wrap;
-            gap: 6px;
+            gap: 8px;
         }
 
         .nav-links a {
             padding: 8px 14px;
-            border: 1px solid transparent;
             border-radius: 999px;
-            color: var(--light);
+            color: var(--sage);
             font-size: 13px;
-            transition:
-                background 180ms ease,
-                border-color 180ms ease;
+            transition: background 180ms ease, color 180ms ease;
         }
 
         .nav-links a:hover {
             background: var(--surface);
-            border-color: var(--border);
+            color: var(--cream);
         }
 
         .nav-links .nav-resume {
-            border-color: var(--border);
+            border: 1px solid var(--border);
+            color: var(--cream);
         }
 
         /* HERO */
         .hero {
+            position: relative;
             display: grid;
             grid-template-columns: 1.15fr 0.85fr;
-            gap: clamp(36px, 6vw, 85px);
+            gap: clamp(36px, 6vw, 90px);
             align-items: center;
-            padding-block: 64px 90px;
+            padding-block: 70px 90px;
         }
 
         .eyebrow {
             display: flex;
             align-items: center;
-            gap: 12px;
-            margin-bottom: 26px;
-            color: var(--light);
+            gap: 10px;
+            margin-bottom: 24px;
+            color: var(--sage);
             font-size: 11px;
             font-weight: 600;
-            letter-spacing: 1.8px;
+            letter-spacing: 2px;
             text-transform: uppercase;
         }
 
         .eyebrow::before {
             content: "";
-            width: 26px;
-            height: 4px;
+            width: 8px;
+            height: 8px;
             flex-shrink: 0;
-            background: var(--red);
+            border-radius: 50%;
+            background: var(--yellow);
+            box-shadow: 0 0 0 5px rgba(245, 203, 92, 0.08);
         }
 
         .hero h1 {
-            margin-bottom: 28px;
+            margin-bottom: 24px;
             font-size: clamp(64px, 7.8vw, 108px);
-            font-weight: 600;
+            font-weight: 500;
             line-height: 0.98;
             letter-spacing: -0.07em;
         }
 
         .hero h1 span {
-            position: relative;
-            isolation: isolate;
-            display: table;
-            padding-bottom: 8px;
-        }
-
-        .hero h1 span::after {
-            content: "";
-            position: absolute;
-            right: 0;
-            bottom: 3px;
-            left: 4px;
-            z-index: -1;
-            height: 13px;
-            background: var(--red);
-            transform: skewX(-18deg);
+            display: block;
+            color: var(--yellow);
         }
 
         .hero-statement {
-            margin-bottom: 24px;
+            max-width: 460px;
+            margin-bottom: 26px;
             font-family: var(--heading);
-            font-size: clamp(23px, 2.3vw, 30px);
+            font-size: clamp(22px, 2.3vw, 30px);
             line-height: 1.3;
             letter-spacing: -0.04em;
         }
@@ -225,19 +213,20 @@
         .hero-description {
             max-width: 520px;
             margin-bottom: 16px;
-            color: var(--light);
+            color: var(--sage);
             font-size: 14px;
             line-height: 1.85;
         }
 
         .hero-description strong {
-            color: var(--white);
-            font-weight: 700;
+            color: var(--cream);
+            font-weight: 600;
         }
 
         .hero-actions {
             display: flex;
             flex-wrap: wrap;
+            align-items: center;
             gap: 14px;
             margin-top: 30px;
         }
@@ -250,7 +239,7 @@
             min-height: 48px;
             padding: 12px 22px;
             border: 1px solid transparent;
-            border-radius: 6px;
+            border-radius: 999px;
             font-size: 13px;
             font-weight: 700;
             transition:
@@ -264,25 +253,24 @@
         }
 
         .button-primary {
-            color: var(--white);
-            background: var(--red);
+            color: var(--background);
+            background: var(--yellow);
         }
 
         .button-primary:hover {
-            background: var(--red-dark);
+            background: var(--cream);
         }
 
         .button-secondary {
-            color: var(--white);
+            color: var(--cream);
             border-color: var(--border);
         }
 
         .button-secondary:hover {
+            border-color: var(--sage);
             background: var(--surface);
-            border-color: var(--light);
         }
 
-        /* PORTRAIT */
         .portrait-area {
             position: relative;
             min-width: 0;
@@ -294,19 +282,8 @@
             position: absolute;
             inset: 0;
             border: 1px solid var(--border);
-            border-radius: 100px 16px 16px 16px;
+            border-radius: 140px 24px 24px 24px;
             transform: rotate(4deg);
-            pointer-events: none;
-        }
-
-        .portrait-area::after {
-            content: "";
-            position: absolute;
-            top: 45%;
-            right: 3px;
-            width: 6px;
-            height: 90px;
-            background: var(--red);
             pointer-events: none;
         }
 
@@ -314,8 +291,20 @@
             position: relative;
             overflow: hidden;
             isolation: isolate;
-            border-radius: 90px 10px 10px 10px;
+            border-radius: 130px 16px 16px 16px;
             background: var(--surface);
+        }
+
+        .portrait-frame::after {
+            content: "";
+            position: absolute;
+            inset: 45% 0 0;
+            z-index: 1;
+            background: linear-gradient(
+                transparent,
+                rgba(36, 36, 35, 0.95)
+            );
+            pointer-events: none;
         }
 
         .portrait {
@@ -325,67 +314,59 @@
             object-position: center;
         }
 
-        .portrait-frame::after {
-            content: "";
-            position: absolute;
-            inset: 40% 0 0;
-            z-index: 1;
-            background: linear-gradient(
-                transparent,
-                rgba(51, 51, 51, 0.95)
-            );
-            pointer-events: none;
-        }
-
         .portrait-caption {
             position: absolute;
-            right: 22px;
-            bottom: 22px;
-            left: 22px;
+            right: 24px;
+            bottom: 24px;
+            left: 24px;
             z-index: 2;
             display: flex;
-            align-items: end;
             justify-content: space-between;
+            align-items: end;
             gap: 14px;
         }
 
         .portrait-caption p {
             margin: 0;
+            color: var(--cream);
             font-size: 13px;
             line-height: 1.5;
         }
 
         .portrait-caption small {
             display: block;
-            margin-bottom: 8px;
+            margin-bottom: 6px;
+            color: var(--yellow);
             font-size: 10px;
             letter-spacing: 1.5px;
             text-transform: uppercase;
         }
 
         .portrait-cross {
+            color: var(--yellow);
             font-family: var(--heading);
             font-size: 44px;
+            font-weight: 400;
             line-height: 1;
         }
 
-        .portrait-badge {
+        .orbit-badge {
             position: absolute;
             top: 0;
-            right: -4px;
+            right: -8px;
             z-index: 3;
             display: grid;
             place-items: center;
             width: 100px;
             height: 100px;
-            border: 7px solid var(--background);
+            border: 8px solid var(--background);
             border-radius: 50%;
-            color: var(--white);
-            background: var(--red);
+            background: var(--yellow);
+            color: var(--background);
             transform: rotate(12deg);
         }
 
-        .portrait-badge span {
+        .orbit-badge span {
             font-family: var(--heading);
             font-size: 11px;
             font-weight: 700;
@@ -400,14 +381,14 @@
             justify-content: space-between;
             gap: 12px;
             padding-top: 20px;
-            color: var(--light);
+            color: var(--sage);
             font-family: monospace;
             font-size: 10px;
             letter-spacing: 1px;
             text-transform: uppercase;
         }
 
-        /* DISCIPLINES */
+        /* ENGINEERING DISCIPLINES */
         .discipline-strip {
             border-top: 1px solid var(--border);
             border-bottom: 1px solid var(--border);
@@ -432,18 +413,16 @@
         }
 
         .discipline-list span::before {
-            content: "";
-            width: 7px;
-            height: 7px;
-            flex-shrink: 0;
-            background: var(--red);
-            transform: rotate(45deg);
+            content: "+";
+            color: var(--yellow);
+            font-size: 22px;
+            line-height: 1;
         }
 
         /* SECTION HEADINGS */
         .projects,
         .experience {
-            padding-block: 90px 20px;
+            padding-block: 100px 20px;
         }
 
         .section-top {
@@ -455,23 +434,13 @@
         }
 
         .section-label {
-            display: flex;
-            align-items: center;
-            gap: 12px;
-            margin-bottom: 14px;
-            color: var(--light);
+            display: block;
+            margin-bottom: 10px;
+            color: var(--yellow);
             font-family: monospace;
             font-size: 11px;
             letter-spacing: 2px;
             text-transform: uppercase;
-        }
-
-        .section-label::before {
-            content: "";
-            width: 22px;
-            height: 3px;
-            flex-shrink: 0;
-            background: var(--red);
         }
 
         .section-top h2 {
@@ -483,7 +452,7 @@
         }
 
         .section-meta {
-            color: var(--light);
+            color: var(--sage);
             font-size: 12px;
             text-align: right;
         }
@@ -505,7 +474,7 @@
             height: 100%;
             overflow: hidden;
             border: 1px solid var(--border);
-            border-radius: 12px;
+            border-radius: 18px;
             background: var(--surface);
             transition:
                 transform 220ms ease,
@@ -515,15 +484,15 @@
 
         .project-link:hover {
             transform: translateY(-6px);
-            border-color: var(--light);
-            box-shadow: 0 16px 32px rgba(0, 0, 0, 0.16);
+            border-color: var(--yellow);
+            box-shadow: 0 18px 36px rgba(0, 0, 0, 0.16);
         }
 
         .project-image {
             position: relative;
             overflow: hidden;
             aspect-ratio: 4 / 3;
-            background: var(--light);
+            background: var(--cream);
         }
 
         .project-image img {
@@ -541,7 +510,7 @@
             padding: 16px;
             object-fit: contain;
             object-position: center;
-            background: var(--light);
+            background: var(--cream);
         }
 
         .project-image img.manatee-image {
@@ -551,7 +520,7 @@
         .project-image.fpv-fit img {
             object-fit: contain;
             object-position: center;
-            background: var(--light);
+            background: var(--cream);
         }
 
         .project-number {
@@ -562,10 +531,10 @@
             place-items: center;
             width: 38px;
             height: 38px;
-            border: 1px solid rgba(246, 246, 246, 0.3);
-            border-radius: 5px;
-            background: var(--red);
-            color: var(--white);
+            border: 1px solid rgba(232, 237, 223, 0.25);
+            border-radius: 50%;
+            background: var(--background);
+            color: var(--yellow);
             font-family: monospace;
             font-size: 12px;
         }
@@ -589,7 +558,7 @@
         .project p {
             grid-column: 1;
             margin: 0;
-            color: var(--light);
+            color: var(--sage);
             font-size: 12px;
             line-height: 1.7;
         }
@@ -603,16 +572,14 @@
             height: 40px;
             border: 1px solid var(--border);
             border-radius: 50%;
-            color: var(--white);
+            color: var(--yellow);
             font-size: 21px;
-            transition:
-                background 180ms ease,
-                border-color 180ms ease;
+            transition: background 180ms ease, color 180ms ease;
         }
 
         .project-link:hover .project-arrow {
-            border-color: var(--red);
-            background: var(--red);
+            background: var(--yellow);
+            color: var(--background);
         }
 
         .project:last-child {
@@ -653,8 +620,8 @@
             width: 38px;
             height: 38px;
             border: 1px solid var(--border);
-            border-radius: 5px;
-            color: var(--white);
+            border-radius: 50%;
+            color: var(--yellow);
             font-family: monospace;
             font-size: 12px;
         }
@@ -674,21 +641,20 @@
 
         .experience-company {
             margin-bottom: 14px;
-            color: var(--white);
+            color: var(--yellow);
             font-size: 13px;
-            font-weight: 600;
         }
 
         .experience-description {
             margin: 0;
-            color: var(--light);
+            color: var(--sage);
             font-size: 14px;
             line-height: 1.85;
         }
 
         .experience-date {
             padding-top: 7px;
-            color: var(--light);
+            color: var(--sage);
             font-family: monospace;
             font-size: 12px;
             text-align: right;
@@ -709,8 +675,7 @@
             overflow: hidden;
             padding: clamp(28px, 5vw, 60px);
             border: 1px solid var(--border);
-            border-left: 5px solid var(--red);
-            border-radius: 12px;
+            border-radius: 22px;
             background: var(--surface);
         }
 
@@ -720,7 +685,7 @@
             top: -95px;
             right: 80px;
             z-index: -1;
-            color: rgba(246, 246, 246, 0.035);
+            color: rgba(245, 203, 92, 0.06);
             font-family: var(--heading);
             font-size: 380px;
             line-height: 1;
@@ -742,7 +707,7 @@
         .resume p {
             max-width: 490px;
             margin-bottom: 0;
-            color: var(--light);
+            color: var(--sage);
             font-size: 14px;
         }
 
@@ -762,17 +727,12 @@
             gap: 14px 24px;
             padding-top: 24px;
             border-top: 1px solid var(--border);
-            color: var(--light);
+            color: var(--sage);
             font-size: 11px;
         }
 
         .back-to-top {
-            color: var(--white);
-        }
-
-        .back-to-top:hover {
-            text-decoration: underline;
-            text-underline-offset: 5px;
+            color: var(--yellow);
         }
 
         /* TABLET */
@@ -790,7 +750,7 @@
                 padding: 12px;
             }
 
-            .portrait-badge {
+            .orbit-badge {
                 width: 86px;
                 height: 86px;
                 right: -2px;
@@ -835,7 +795,7 @@
             }
 
             .nav-links a {
-                padding: 8px 10px;
+                padding: 8px 11px;
                 font-size: 12px;
             }
 
@@ -851,7 +811,7 @@
 
             .eyebrow {
                 font-size: 10px;
-                letter-spacing: 1.3px;
+                letter-spacing: 1.6px;
             }
 
             .hero-description {
@@ -1049,7 +1009,7 @@
             </div>
 
             <div class="portrait-area">
-                <div class="portrait-badge" aria-hidden="true">
+                <div class="orbit-badge" aria-hidden="true">
                     <span>Design.<br>Build.<br>Refine.</span>
                 </div>
 
