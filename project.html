@@ -355,17 +355,17 @@ footer { padding: 28px 0 36px; border-top: 1px solid var(--border); color: var(-
                 imageClass: "contain",
 
                 overview:
-                    "Evaluated the structural behavior of a wing spar and bracing assembly using finite element analysis. The model represented load-bearing structural members and their response to applied loading and support constraints.",
+                    "Developed a finite element model of an aircraft wing spar and bracing assembly in Simcenter Femap with NASTRAN to investigate load transfer, deformation, internal forces, and beam stresses. Compared simulation results with theoretical structural mechanics calculations to assess agreement and identify differences in predicted behavior.",
 
                 highlights: [
-                    "Worked with beam and rod elements to represent spars, braces, and cables.",
-                    "Defined material properties and beam cross-sections, including channel-section geometry.",
-                    "Evaluated displacement, internal member forces, and support reactions using NASTRAN.",
-                    "Compared numerical results with theoretical structural mechanics calculations."
+                    "Represented the spars using 50 beam elements and the cables and ribs/braces using 13 rod elements.",
+                    "Defined material properties and channel-section geometry, including cross-sectional properties and stress-recovery locations.",
+                    "Evaluated displacement, axial force, shear force, bending moment, and combined beam stress under the modeled loading and support conditions.",
+                    "Compared calculated member forces, support reactions, and peak compressive beam stress with NASTRAN results.",
                 ],
 
                 results:
-                    "Compared calculated and simulated structural responses to evaluate model behavior. The analysis demonstrated the importance of appropriate element selection, material definitions, boundary conditions, and numerical validation."
+                    "The predicted peak compressive beam stress was approximately 3,616 psi, compared with a theoretical value of 3,600 psi—a difference of 0.44%. The five listed support-reaction comparisons agreed within approximately 0.06%. Agreement varied across individual members, with some force comparisons showing substantially larger differences. These results highlight the importance of checking local member behavior alongside overall reactions and peak stress when evaluating a finite element model.",
             },
 
             /* PROJECT 03 */
