@@ -204,6 +204,60 @@ footer { padding: 28px 0 36px; border-top: 1px solid var(--border); color: var(-
     *, *::before, *::after { transition: none !important; }
     .project-gallery a:hover, .project-gallery a:hover img { transform: none; }
 }
+        /* PDF cards inside the project gallery */
+.project-gallery a.pdf-report {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    aspect-ratio: auto;
+    min-height: 250px;
+    padding: 28px;
+    border: 1px solid var(--border);
+    border-top: 3px solid var(--yellow);
+    border-radius: 14px;
+    background: var(--surface);
+    color: var(--text);
+}
+
+.pdf-report-label {
+    margin-bottom: 22px;
+    color: var(--yellow);
+    font-family: monospace;
+    font-size: 11px;
+    letter-spacing: 2px;
+}
+
+.pdf-report h3 {
+    margin: 0 0 12px;
+    font-size: 26px;
+    line-height: 1.2;
+    letter-spacing: -0.04em;
+}
+
+.pdf-report p {
+    margin: 0 0 24px;
+    color: var(--muted);
+    font-size: 14px;
+    line-height: 1.7;
+}
+
+.pdf-report-action {
+    margin-top: auto;
+    color: var(--yellow);
+    font-size: 13px;
+    font-weight: 600;
+}
+
+.project-gallery a.pdf-report:hover {
+    border-color: var(--yellow);
+}
+
+@media (max-width: 768px) {
+    .project-gallery a.pdf-report {
+        min-height: 220px;
+        padding: 22px;
+    }
+}
 </style>
 </head>
 
@@ -719,6 +773,55 @@ if (photos.length > 0) {
             document.querySelector(".project-hero").hidden = true;
             document.querySelector(".project-content").hidden = true;
         }
+        /* NASTRAN PDF REPORTS */
+if (projectId === "nastran") {
+    const gallerySection = document.getElementById("gallery-section");
+    const galleryGrid = document.getElementById("project-gallery");
+
+    const reports = [
+        {
+            file: "nast.pdf",
+            title: "Results Comparison",
+            description: "Theoretical calculations compared with NASTRAN results."
+        },
+        {
+            file: "NASTRAN%20CBEAM%20Stresses.pdf",
+            title: "Beam Stress Report",
+            description: "Detailed beam stress output from the finite element model."
+        }
+    ];
+
+    reports.forEach(function(report) {
+        const card = document.createElement("a");
+        card.className = "pdf-report";
+        card.href = report.file;
+        card.target = "_blank";
+        card.rel = "noopener noreferrer";
+        card.setAttribute(
+            "aria-label",
+            report.title + " — PDF, opens in a new tab"
+        );
+
+        const label = document.createElement("span");
+        label.className = "pdf-report-label";
+        label.textContent = "PDF / ANALYSIS";
+
+        const title = document.createElement("h3");
+        title.textContent = report.title;
+
+        const description = document.createElement("p");
+        description.textContent = report.description;
+
+        const action = document.createElement("span");
+        action.className = "pdf-report-action";
+        action.textContent = "View Report ↗";
+
+        card.append(label, title, description, action);
+        galleryGrid.appendChild(card);
+    });
+
+    gallerySection.hidden = false;
+}
     </script>
 
 </body>
