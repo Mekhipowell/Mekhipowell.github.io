@@ -15,7 +15,6 @@
           rel="stylesheet">
 
     <style>
-        /* HARMONY PALETTE */
         :root {
             color-scheme: dark;
             --sage: #CFDBD5;
@@ -29,9 +28,7 @@
             --body: "DM Sans", Arial, sans-serif;
         }
 
-        * {
-            box-sizing: border-box;
-        }
+        * { box-sizing: border-box; }
 
         html {
             scroll-behavior: smooth;
@@ -46,6 +43,8 @@
             line-height: 1.7;
             -webkit-font-smoothing: antialiased;
         }
+
+        [hidden] { display: none !important; }
 
         ::selection {
             color: var(--background);
@@ -62,18 +61,14 @@
             text-decoration: none;
         }
 
-        a:focus-visible {
+        a:focus-visible,
+        button:focus-visible {
             outline: 3px solid var(--yellow);
-            outline-offset: 6px;
+            outline-offset: 5px;
         }
 
-        h1, h2, h3, p {
-            margin-top: 0;
-        }
-
-        h1, h2, h3 {
-            font-family: var(--heading);
-        }
+        h1, h2, h3, p { margin-top: 0; }
+        h1, h2, h3 { font-family: var(--heading); }
 
         .container {
             width: min(1180px, calc(100% - 64px));
@@ -84,23 +79,19 @@
             position: absolute;
             top: 12px;
             left: 12px;
-            z-index: 100;
+            z-index: 2000;
             padding: 10px 18px;
             background: var(--yellow);
             color: var(--background);
             transform: translateY(-180%);
         }
 
-        .skip-link:focus {
-            transform: translateY(0);
-        }
+        .skip-link:focus { transform: translateY(0); }
 
         /* NAVIGATION */
-        header {
-            padding-block: 26px;
-        }
+        .site-header { padding-block: 26px; }
 
-        nav {
+        .site-nav {
             display: flex;
             align-items: center;
             justify-content: space-between;
@@ -123,6 +114,7 @@
             place-items: center;
             width: 38px;
             height: 38px;
+            flex-shrink: 0;
             border-radius: 50%;
             color: var(--background);
             background: var(--yellow);
@@ -156,6 +148,8 @@
             color: var(--cream);
         }
 
+        .menu-toggle { display: none; }
+
         /* HERO */
         .hero {
             position: relative;
@@ -165,6 +159,8 @@
             align-items: center;
             padding-block: 70px 90px;
         }
+
+        .hero-content { min-width: 0; }
 
         .eyebrow {
             display: flex;
@@ -248,18 +244,14 @@
                 border-color 180ms ease;
         }
 
-        .button:hover {
-            transform: translateY(-3px);
-        }
+        .button:hover { transform: translateY(-3px); }
 
         .button-primary {
             color: var(--background);
             background: var(--yellow);
         }
 
-        .button-primary:hover {
-            background: var(--cream);
-        }
+        .button-primary:hover { background: var(--cream); }
 
         .button-secondary {
             color: var(--cream);
@@ -271,6 +263,7 @@
             background: var(--surface);
         }
 
+        /* PORTRAIT */
         .portrait-area {
             position: relative;
             min-width: 0;
@@ -464,9 +457,7 @@
             gap: 28px;
         }
 
-        .project {
-            min-width: 0;
-        }
+        .project { min-width: 0; }
 
         .project-link {
             display: flex;
@@ -582,9 +573,7 @@
             color: var(--background);
         }
 
-        .project:last-child {
-            grid-column: 1 / -1;
-        }
+        .project:last-child { grid-column: 1 / -1; }
 
         .project:last-child .project-link {
             display: grid;
@@ -661,14 +650,13 @@
         }
 
         /* RESUME */
-        .resume {
-            padding-block: 90px;
-        }
+        .resume { padding-block: 90px; }
 
         .resume-panel {
             position: relative;
             isolation: isolate;
             display: flex;
+            flex-wrap: wrap;
             justify-content: space-between;
             align-items: center;
             gap: 36px;
@@ -692,9 +680,7 @@
             pointer-events: none;
         }
 
-        .resume-copy {
-            max-width: 600px;
-        }
+        .resume-copy { max-width: 600px; }
 
         .resume h2 {
             margin-bottom: 16px;
@@ -711,14 +697,62 @@
             font-size: 14px;
         }
 
-        .resume .button {
-            flex-shrink: 0;
+        .resume-actions {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+            max-width: 100%;
+        }
+
+        /* CONTACT */
+        .contact { padding-bottom: 80px; }
+
+        .contact-panel {
+            padding: clamp(28px, 5vw, 60px);
+            border: 1px solid var(--border);
+            border-top: 3px solid var(--yellow);
+            border-radius: 22px;
+            background: var(--surface);
+        }
+
+        .contact h2 {
+            margin: 0 0 20px;
+            font-size: clamp(36px, 5vw, 60px);
+            font-weight: 500;
+            line-height: 1.1;
+            letter-spacing: -0.045em;
+        }
+
+        .contact-intro {
+            max-width: 580px;
+            margin-bottom: 24px;
+            color: var(--sage);
+            font-size: 15px;
+            line-height: 1.8;
+        }
+
+        .contact-email {
+            display: inline-block;
+            max-width: 100%;
+            margin-bottom: 28px;
+            color: var(--yellow);
+            font-size: clamp(18px, 3vw, 28px);
+            overflow-wrap: anywhere;
+        }
+
+        .contact-email:hover {
+            text-decoration: underline;
+            text-underline-offset: 6px;
+        }
+
+        .contact-actions {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
         }
 
         /* FOOTER */
-        footer {
-            padding-bottom: 32px;
-        }
+        footer { padding-bottom: 32px; }
 
         .footer-content {
             display: flex;
@@ -731,9 +765,7 @@
             font-size: 11px;
         }
 
-        .back-to-top {
-            color: var(--yellow);
-        }
+        .back-to-top { color: var(--yellow); }
 
         /* TABLET */
         @media (max-width: 960px) {
@@ -746,9 +778,7 @@
                 font-size: clamp(62px, 8.5vw, 82px);
             }
 
-            .portrait-area {
-                padding: 12px;
-            }
+            .portrait-area { padding: 12px; }
 
             .orbit-badge {
                 width: 86px;
@@ -762,9 +792,7 @@
                 left: 18px;
             }
 
-            .discipline-list {
-                justify-content: center;
-            }
+            .discipline-list { justify-content: center; }
 
             .resume-panel {
                 align-items: flex-start;
@@ -774,59 +802,191 @@
 
         /* MOBILE */
         @media (max-width: 700px) {
+            html { scroll-padding-top: 100px; }
+
             .container {
                 width: calc(100% - 36px);
             }
 
-            header {
-                padding-block: 20px 0;
+            /* Sticky header */
+            .site-header {
+                position: sticky;
+                top: 0;
+                z-index: 1000;
+                padding: 12px 0;
+                background: var(--background);
+                border-bottom: 1px solid var(--border);
             }
 
-            nav {
+            .site-nav {
+                position: relative;
+                flex-direction: row;
+                align-items: center;
+                justify-content: space-between;
+                flex-wrap: wrap;
+                gap: 12px;
+                padding: 0;
+                border: 0;
+            }
+
+            .site-header .logo {
+                gap: 10px;
+                font-size: 15px;
+            }
+
+            .site-header .logo-mark {
+                width: 36px;
+                height: 36px;
+            }
+
+            .menu-toggle:not([hidden]) {
+                display: flex;
                 flex-direction: column;
-                align-items: flex-start;
-                gap: 16px;
-                padding-bottom: 18px;
+                align-items: center;
+                justify-content: center;
+                gap: 5px;
+                width: 44px;
+                height: 44px;
+                padding: 10px;
+                border: 1px solid var(--border);
+                border-radius: 10px;
+                background: var(--surface);
+                color: var(--cream);
+                cursor: pointer;
             }
 
-            .nav-links {
+            .menu-toggle span {
+                display: block;
+                width: 20px;
+                height: 2px;
+                background: currentColor;
+            }
+
+            .site-header .nav-links {
                 width: 100%;
                 gap: 4px;
             }
 
-            .nav-links a {
+            .site-header .nav-links a {
                 padding: 8px 11px;
                 font-size: 12px;
             }
 
+            /* Dropdown enabled when JavaScript loads */
+            .site-header.menu-ready .nav-links {
+                display: none;
+                position: absolute;
+                top: calc(100% + 13px);
+                right: 0;
+                width: min(280px, calc(100vw - 36px));
+                max-height: 70vh;
+                max-height: 70dvh;
+                overflow-y: auto;
+                flex-direction: column;
+                align-items: stretch;
+                gap: 6px;
+                padding: 12px;
+                border: 1px solid var(--border);
+                border-radius: 14px;
+                background: var(--surface);
+                box-shadow: 0 16px 35px rgba(0, 0, 0, 0.25);
+            }
+
+            .site-header.menu-ready .nav-links.is-open {
+                display: flex;
+            }
+
+            .site-header.menu-ready .nav-links a {
+                display: block;
+                padding: 12px 16px;
+                border-radius: 8px;
+                color: var(--cream);
+                font-size: 14px;
+            }
+
+            .site-header.menu-ready .nav-links a:hover {
+                background: var(--background);
+            }
+
+            .site-header.menu-ready .nav-links .nav-resume {
+                background: var(--yellow);
+                color: var(--background);
+                border-color: var(--yellow);
+                font-weight: 700;
+            }
+
+            /* Mobile order: student heading, name, photo, intro */
             .hero {
-                grid-template-columns: 1fr;
-                gap: 40px;
-                padding-block: 42px 48px;
+                display: grid;
+                grid-template-columns: minmax(0, 1fr);
+                gap: 20px;
+                padding-block: 30px 48px;
+            }
+
+            .hero .hero-content { display: contents; }
+            .hero .hero-content > * { grid-column: 1; }
+
+            .hero .eyebrow {
+                grid-row: 1;
+                margin: 0;
+                font-size: 10px;
+                letter-spacing: 1.3px;
             }
 
             .hero h1 {
-                font-size: clamp(64px, 15vw, 94px);
+                grid-row: 2;
+                margin: 0;
+                font-size: clamp(60px, 15vw, 86px);
+                line-height: 1;
             }
 
-            .eyebrow {
-                font-size: 10px;
-                letter-spacing: 1.6px;
+            .hero .portrait-area {
+                grid-column: 1;
+                grid-row: 3;
+                width: min(100%, 380px);
+                margin: 8px auto 12px;
+                padding: 12px;
             }
 
-            .hero-description {
-                max-width: none;
+            .hero .portrait {
+                width: 100%;
+                height: auto;
+                max-height: none;
+                aspect-ratio: auto;
+                object-fit: contain;
             }
 
-            .portrait-area {
-                width: min(100%, 440px);
-                margin-inline: auto;
-                padding: 14px;
+            .hero .portrait-frame { border-radius: 18px; }
+
+            .hero .portrait-area::before {
+                border-radius: 24px;
+                transform: rotate(2deg);
             }
 
-            .portrait {
-                max-height: 510px;
+            .hero .portrait-caption {
+                position: static;
+                padding: 18px;
+                background: var(--surface);
+                align-items: center;
             }
+
+            .hero .portrait-frame::after { display: none; }
+
+            .hero .portrait-note {
+                flex-wrap: wrap;
+                gap: 6px 12px;
+                padding-top: 14px;
+                font-size: 9px;
+                letter-spacing: 0.6px;
+            }
+
+            .hero .hero-statement,
+            .hero .hero-description {
+                margin: 0;
+            }
+
+            .hero .hero-description { max-width: none; }
+            .hero .hero-actions { margin-top: 4px; }
 
             .discipline-list {
                 display: grid;
@@ -851,22 +1011,15 @@
                 margin-bottom: 26px;
             }
 
-            .section-meta {
-                text-align: left;
-            }
+            .section-meta { text-align: left; }
 
             .project-grid {
                 grid-template-columns: 1fr;
                 gap: 24px;
             }
 
-            .project:last-child {
-                grid-column: auto;
-            }
-
-            .project:last-child .project-link {
-                display: flex;
-            }
+            .project:last-child { grid-column: auto; }
+            .project:last-child .project-link { display: flex; }
 
             .project-copy,
             .project:last-child .project-copy {
@@ -902,13 +1055,10 @@
                 grid-row: 2;
             }
 
-            .resume {
-                padding-block: 60px;
-            }
-
-            .resume-panel {
-                gap: 26px;
-            }
+            .resume { padding-block: 60px; }
+            .resume-panel { gap: 26px; }
+            .contact { padding-bottom: 50px; }
+            .contact-actions .button { width: 100%; }
 
             .footer-content {
                 flex-direction: column;
@@ -917,13 +1067,9 @@
         }
 
         @media (prefers-reduced-motion: reduce) {
-            html {
-                scroll-behavior: auto;
-            }
+            html { scroll-behavior: auto; }
 
-            *,
-            *::before,
-            *::after {
+            *, *::before, *::after {
                 transition: none !important;
                 animation: none !important;
             }
@@ -934,187 +1080,39 @@
                 transform: none;
             }
         }
-       @media (max-width: 700px) {
-    /* Allow the heading, photo, and introduction
-       to be arranged separately on mobile */
-    .hero {
-        display: grid;
-        grid-template-columns: minmax(0, 1fr);
-        gap: 20px;
-        padding-top: 30px;
-    }
-
-    .hero .hero-content {
-        display: contents;
-    }
-
-    .hero .hero-content > * {
-        grid-column: 1;
-    }
-
-    /* 1. Student heading */
-    .hero .eyebrow {
-        grid-row: 1;
-        margin: 0;
-        font-size: 10px;
-        letter-spacing: 1.3px;
-    }
-
-    /* 2. Name */
-    .hero h1 {
-        grid-row: 2;
-        margin: 0;
-        font-size: clamp(60px, 15vw, 86px);
-        line-height: 1;
-    }
-
-    /* 3. Portrait */
-    .hero .portrait-area {
-        grid-column: 1;
-        grid-row: 3;
-        width: min(100%, 380px);
-        margin: 8px auto 12px;
-        padding: 12px;
-    }
-
-    /* Display the photo at its natural proportions */
-    .hero .portrait {
-        width: 100%;
-        height: auto;
-        max-height: none;
-        aspect-ratio: auto;
-        object-fit: contain;
-    }
-
-    .hero .portrait-frame {
-        border-radius: 18px;
-    }
-
-    .hero .portrait-area::before {
-        border-radius: 24px;
-        transform: rotate(2deg);
-    }
-
-    /* Put the caption below the photo
-       so it does not cover your face */
-    .hero .portrait-caption {
-        position: static;
-        padding: 18px;
-        background: var(--surface);
-        align-items: center;
-    }
-
-    .hero .portrait-frame::after {
-        display: none;
-    }
-
-    .hero .portrait-note {
-        flex-wrap: wrap;
-        gap: 6px 12px;
-        padding-top: 14px;
-        font-size: 9px;
-        letter-spacing: 0.6px;
-    }
-
-    /* Introduction follows the photo */
-    .hero .hero-statement {
-        margin: 0;
-    }
-
-    .hero .hero-description {
-        margin: 0;
-    }
-
-    .hero .hero-actions {
-        margin-top: 4px;
-    }
-}
-      .resume-actions {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 12px;
-    flex-shrink: 0;
-}  
-        /* CONTACT */
-.contact {
-    padding-bottom: 80px;
-}
-
-.contact-panel {
-    padding: clamp(28px, 5vw, 60px);
-    border: 1px solid var(--border);
-    border-top: 3px solid var(--yellow);
-    border-radius: 22px;
-    background: var(--surface);
-}
-
-.contact h2 {
-    margin: 0 0 20px;
-    font-size: clamp(36px, 5vw, 60px);
-    font-weight: 500;
-    line-height: 1.1;
-    letter-spacing: -0.045em;
-}
-
-.contact-intro {
-    max-width: 580px;
-    margin-bottom: 24px;
-    color: var(--sage);
-    font-size: 15px;
-    line-height: 1.8;
-}
-
-.contact-email {
-    display: inline-block;
-    max-width: 100%;
-    margin-bottom: 28px;
-    color: var(--yellow);
-    font-size: clamp(18px, 3vw, 28px);
-    overflow-wrap: anywhere;
-}
-
-.contact-email:hover {
-    text-decoration: underline;
-    text-underline-offset: 6px;
-}
-
-.contact-actions {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 12px;
-}
-
-@media (max-width: 700px) {
-    .contact {
-        padding-bottom: 50px;
-    }
-
-    .contact-actions .button {
-        width: 100%;
-    }
-}
     </style>
 </head>
 
 <body id="top">
     <a class="skip-link" href="#main">Skip to content</a>
 
-    <header>
+    <!-- NAVIGATION -->
+    <header class="site-header">
         <div class="container">
-            <nav aria-label="Main navigation">
+            <nav class="site-nav" aria-label="Main navigation">
                 <a href="#about" class="logo">
                     <span class="logo-mark" aria-hidden="true">MP</span>
                     Mekhi Powell
                 </a>
 
-                <div class="nav-links">
+                <button
+                    class="menu-toggle"
+                    type="button"
+                    aria-label="Open navigation"
+                    aria-expanded="false"
+                    aria-controls="main-navigation"
+                    hidden>
+                    <span aria-hidden="true"></span>
+                    <span aria-hidden="true"></span>
+                    <span aria-hidden="true"></span>
+                </button>
+
+                <div class="nav-links" id="main-navigation">
                     <a href="#about">About</a>
                     <a href="#projects">Projects</a>
                     <a href="#experience">Experience</a>
-                    <a href="#resume" class="nav-resume">
-                        Résumé <span aria-hidden="true">↗</span>
-                    </a>
                     <a href="#contact">Contact</a>
+                    <a href="#resume" class="nav-resume">Résumé</a>
                 </div>
             </nav>
         </div>
@@ -1132,9 +1130,8 @@
                 <h1 id="hero-title">Mekhi <span>Powell.</span></h1>
 
                 <p class="hero-statement">
-                    Seeking Full-Time <br> 
+                    Seeking Full-Time<br>
                     Mechanical Engineering Roles
-                    
                 </p>
 
                 <p class="hero-description">
@@ -1160,11 +1157,11 @@
                 <div class="hero-actions">
                     <a href="#projects" class="button button-primary">
                         Explore My Work
-                        <span aria-hidden="true">↘</span>
+                        <span aria-hidden="true">&#8600;&#65038;</span>
                     </a>
                     <a href="#experience" class="button button-secondary">
                         My Experience
-                        <span aria-hidden="true">↓</span>
+                        <span aria-hidden="true">&#8595;&#65038;</span>
                     </a>
                 </div>
             </div>
@@ -1194,11 +1191,12 @@
 
                 <div class="portrait-note" aria-hidden="true">
                     <span>Ideas → Design → Manufacture</span>
-                    <span>MP / 2026  </span>
+                    <span>MP / 2026</span>
                 </div>
             </div>
         </section>
 
+        <!-- DISCIPLINES -->
         <div class="discipline-strip">
             <div class="container discipline-list"
                  aria-label="Engineering interests">
@@ -1238,7 +1236,7 @@
                         <div class="project-copy">
                             <h3>Charpy Impact Tester</h3>
                             <p>Mechanical Design / SolidWorks / Prototyping</p>
-                            <span class="project-arrow" aria-hidden="true">↗</span>
+                            <span class="project-arrow" aria-hidden="true">&#8599;&#65038;</span>
                         </div>
                     </a>
                 </article>
@@ -1258,7 +1256,7 @@
                         <div class="project-copy">
                             <h3>Aircraft Wing Spar Analysis</h3>
                             <p>Finite Element Analysis / Simcenter NASTRAN</p>
-                            <span class="project-arrow" aria-hidden="true">↗</span>
+                            <span class="project-arrow" aria-hidden="true">&#8599;&#65038;</span>
                         </div>
                     </a>
                 </article>
@@ -1278,7 +1276,7 @@
                         <div class="project-copy">
                             <h3>Manatee Tag Release &amp; Recovery</h3>
                             <p>Senior Capstone / Mechanical Design</p>
-                            <span class="project-arrow" aria-hidden="true">↗</span>
+                            <span class="project-arrow" aria-hidden="true">&#8599;&#65038;</span>
                         </div>
                     </a>
                 </article>
@@ -1297,7 +1295,7 @@
                         <div class="project-copy">
                             <h3>Aerodynamic Drag Testing</h3>
                             <p>Experimental Testing / Instrumentation</p>
-                            <span class="project-arrow" aria-hidden="true">↗</span>
+                            <span class="project-arrow" aria-hidden="true">&#8599;&#65038;</span>
                         </div>
                     </a>
                 </article>
@@ -1316,7 +1314,7 @@
                         <div class="project-copy">
                             <h3>FPV Drone Frame Optimization</h3>
                             <p>SolidWorks / FEA / Structural Optimization</p>
-                            <span class="project-arrow" aria-hidden="true">↗</span>
+                            <span class="project-arrow" aria-hidden="true">&#8599;&#65038;</span>
                         </div>
                     </a>
                 </article>
@@ -1335,7 +1333,7 @@
                         <div class="project-copy">
                             <h3>Robotics Operator Control Panel</h3>
                             <p>Onshape / Mechanical Design / Fabrication</p>
-                            <span class="project-arrow" aria-hidden="true">↗</span>
+                            <span class="project-arrow" aria-hidden="true">&#8599;&#65038;</span>
                         </div>
                     </a>
                 </article>
@@ -1354,7 +1352,7 @@
                         <div class="project-copy">
                             <h3>FIRST Robotics Competition — Lucy</h3>
                             <p>Manufacturing / Machining / Mechanical Integration</p>
-                            <span class="project-arrow" aria-hidden="true">↗</span>
+                            <span class="project-arrow" aria-hidden="true">&#8599;&#65038;</span>
                         </div>
                     </a>
                 </article>
@@ -1375,7 +1373,6 @@
             <div class="experience-list">
                 <article class="experience-item">
                     <span class="experience-number" aria-hidden="true">01</span>
-
                     <div class="experience-info">
                         <h3>STEM Instructional Intern</h3>
                         <p class="experience-company">
@@ -1389,13 +1386,11 @@
                             classroom operations.
                         </p>
                     </div>
-
                     <span class="experience-date">Summer 2026</span>
                 </article>
 
                 <article class="experience-item">
                     <span class="experience-number" aria-hidden="true">02</span>
-
                     <div class="experience-info">
                         <h3>University Event Services</h3>
                         <p class="experience-company">
@@ -1409,13 +1404,11 @@
                             and ensure smooth event operations.
                         </p>
                     </div>
-
                     <span class="experience-date">2026 – Present</span>
                 </article>
 
                 <article class="experience-item">
                     <span class="experience-number" aria-hidden="true">03</span>
-
                     <div class="experience-info">
                         <h3>Lead Machinist</h3>
                         <p class="experience-company">
@@ -1428,7 +1421,6 @@
                             to resolve fabrication and assembly issues.
                         </p>
                     </div>
-
                     <span class="experience-date">2023</span>
                 </article>
             </div>
@@ -1447,60 +1439,62 @@
                         prototyping, and engineering education.
                     </p>
                 </div>
-<div class="resume-actions">
-    <a href="resume.pdf"
-       target="_blank"
-       rel="noopener noreferrer"
-       class="button button-primary">
-        View Résumé
-        <span aria-hidden="true">↗</span>
-    </a>
 
-    <a href="resume.pdf"
-       download
-       class="button button-secondary">
-        Download PDF
-        <span aria-hidden="true">↓</span>
-    </a>
-</div>
+                <div class="resume-actions">
+                    <a href="resume.pdf"
+                       target="_blank"
+                       rel="noopener noreferrer"
+                       class="button button-primary">
+                        View Résumé
+                        <span aria-hidden="true">&#8599;&#65038;</span>
+                    </a>
+
+                    <a href="resume.pdf"
+                       download
+                       class="button button-secondary">
+                        Download PDF
+                        <span aria-hidden="true">&#8595;&#65038;</span>
+                    </a>
+                </div>
             </div>
         </section>
+
         <!-- CONTACT -->
-<section class="container contact" id="contact"
-         aria-labelledby="contact-title">
-    <div class="contact-panel">
-        <span class="section-label">04 / Get in Touch</span>
+        <section class="container contact" id="contact"
+                 aria-labelledby="contact-title">
+            <div class="contact-panel">
+                <span class="section-label">04 / Get in Touch</span>
 
-        <h2 id="contact-title">Let’s connect.</h2>
+                <h2 id="contact-title">Let’s connect.</h2>
 
-        <p class="contact-intro">
-            Interested in discussing an engineering opportunity
-            or learning more about my projects? I’d be happy
-            to hear from you.
-        </p>
+                <p class="contact-intro">
+                    Interested in discussing an engineering opportunity
+                    or learning more about my projects? I’d be happy
+                    to hear from you.
+                </p>
 
-        <a class="contact-email"
-           href="mailto:mekhipowell25@gmail.com">
-            mekhipowell25@gmail.com
-        </a>
+                <a class="contact-email"
+                   href="mailto:mekhipowell25@gmail.com">
+                    mekhipowell25@gmail.com
+                </a>
 
-        <div class="contact-actions">
-            <a href="mailto:mekhipowell25@gmail.com"
-               class="button button-primary">
-                Email Me
-                <span aria-hidden="true">↗</span>
-            </a>
+                <div class="contact-actions">
+                    <a href="mailto:mekhipowell25@gmail.com"
+                       class="button button-primary">
+                        Email Me
+                        <span aria-hidden="true">&#8599;&#65038;</span>
+                    </a>
 
-            <a href="https://www.linkedin.com/in/mekhipowell"
-               target="_blank"
-               rel="noopener noreferrer"
-               class="button button-secondary">
-                LinkedIn
-                <span aria-hidden="true">↗</span>
-            </a>
-        </div>
-    </div>
-</section>
+                    <a href="https://www.linkedin.com/in/mekhipowell"
+                       target="_blank"
+                       rel="noopener noreferrer"
+                       class="button button-secondary">
+                        LinkedIn
+                        <span aria-hidden="true">&#8599;&#65038;</span>
+                    </a>
+                </div>
+            </div>
+        </section>
     </main>
 
     <footer>
@@ -1510,9 +1504,84 @@
                 Mechanical Engineering · Florida Polytechnic University
             </span>
             <a href="#top" class="back-to-top">
-                Back to top <span aria-hidden="true">↑</span>
+                Back to top
+                <span aria-hidden="true">&#8593;&#65038;</span>
             </a>
         </div>
     </footer>
+
+    <!-- MOBILE MENU -->
+    <script>
+        (() => {
+            const header = document.querySelector(".site-header");
+            const toggle = header.querySelector(".menu-toggle");
+            const links = header.querySelector("#main-navigation");
+            const mobile = window.matchMedia("(max-width: 700px)");
+
+            function setMenu(open) {
+                links.classList.toggle("is-open", open);
+                toggle.setAttribute("aria-expanded", String(open));
+                toggle.setAttribute(
+                    "aria-label",
+                    open ? "Close navigation" : "Open navigation"
+                );
+            }
+
+            toggle.hidden = false;
+            header.classList.add("menu-ready");
+
+            toggle.addEventListener("click", () => {
+                const isOpen =
+                    toggle.getAttribute("aria-expanded") === "true";
+                setMenu(!isOpen);
+            });
+
+            links.addEventListener("click", (event) => {
+                const link = event.target.closest("a");
+                if (!link || !mobile.matches) return;
+
+                setMenu(false);
+
+                const target = document.querySelector(
+                    link.getAttribute("href")
+                );
+
+                if (target) {
+                    target.setAttribute("tabindex", "-1");
+                    target.focus({ preventScroll: true });
+                }
+            });
+
+            header.querySelector(".logo").addEventListener("click", () => {
+                setMenu(false);
+            });
+
+            document.addEventListener("click", (event) => {
+                if (!header.contains(event.target)) {
+                    setMenu(false);
+                }
+            });
+
+            document.addEventListener("keydown", (event) => {
+                if (
+                    event.key === "Escape" &&
+                    toggle.getAttribute("aria-expanded") === "true"
+                ) {
+                    setMenu(false);
+                    toggle.focus();
+                }
+            });
+
+            header.addEventListener("focusout", (event) => {
+                if (!header.contains(event.relatedTarget)) {
+                    setMenu(false);
+                }
+            });
+
+            mobile.addEventListener("change", () => {
+                setMenu(false);
+            });
+        })();
+    </script>
 </body>
 </html>
