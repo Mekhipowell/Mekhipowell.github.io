@@ -1035,6 +1035,64 @@
     gap: 12px;
     flex-shrink: 0;
 }  
+        /* CONTACT */
+.contact {
+    padding-bottom: 80px;
+}
+
+.contact-panel {
+    padding: clamp(28px, 5vw, 60px);
+    border: 1px solid var(--border);
+    border-top: 3px solid var(--yellow);
+    border-radius: 22px;
+    background: var(--surface);
+}
+
+.contact h2 {
+    margin: 0 0 20px;
+    font-size: clamp(36px, 5vw, 60px);
+    font-weight: 500;
+    line-height: 1.1;
+    letter-spacing: -0.045em;
+}
+
+.contact-intro {
+    max-width: 580px;
+    margin-bottom: 24px;
+    color: var(--sage);
+    font-size: 15px;
+    line-height: 1.8;
+}
+
+.contact-email {
+    display: inline-block;
+    max-width: 100%;
+    margin-bottom: 28px;
+    color: var(--yellow);
+    font-size: clamp(18px, 3vw, 28px);
+    overflow-wrap: anywhere;
+}
+
+.contact-email:hover {
+    text-decoration: underline;
+    text-underline-offset: 6px;
+}
+
+.contact-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+}
+
+@media (max-width: 700px) {
+    .contact {
+        padding-bottom: 50px;
+    }
+
+    .contact-actions .button {
+        width: 100%;
+    }
+}
     </style>
 </head>
 
@@ -1056,6 +1114,7 @@
                     <a href="#resume" class="nav-resume">
                         Résumé <span aria-hidden="true">↗</span>
                     </a>
+                    <a href="#contact">Contact</a>
                 </div>
             </nav>
         </div>
@@ -1406,6 +1465,42 @@
 </div>
             </div>
         </section>
+        <!-- CONTACT -->
+<section class="container contact" id="contact"
+         aria-labelledby="contact-title">
+    <div class="contact-panel">
+        <span class="section-label">04 / Get in Touch</span>
+
+        <h2 id="contact-title">Let’s connect.</h2>
+
+        <p class="contact-intro">
+            Interested in discussing an engineering opportunity
+            or learning more about my projects? I’d be happy
+            to hear from you.
+        </p>
+
+        <a class="contact-email"
+           href="mailto:mekhipowell25@gmail.com">
+            mekhipowell25@gmail.com
+        </a>
+
+        <div class="contact-actions">
+            <a href="mailto:mekhipowell25@gmail.com"
+               class="button button-primary">
+                Email Me
+                <span aria-hidden="true">↗</span>
+            </a>
+
+            <a href="https://www.linkedin.com/in/mekhipowell"
+               target="_blank"
+               rel="noopener noreferrer"
+               class="button button-secondary">
+                LinkedIn
+                <span aria-hidden="true">↗</span>
+            </a>
+        </div>
+    </div>
+</section>
     </main>
 
     <footer>
