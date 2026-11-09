@@ -770,23 +770,56 @@ if (photos.length > 0) {
             document.querySelector(".project-hero").hidden = true;
             document.querySelector(".project-content").hidden = true;
         }
-        /* NASTRAN PDF REPORTS */
-if (projectId === "nastran") {
-    const gallerySection = document.getElementById("gallery-section");
-    const galleryGrid = document.getElementById("project-gallery");
-
-    const reports = [
+        /* PROJECT PDF DRAWINGS AND REPORTS */
+const projectDocuments = {
+    charpy: [
+        {
+            file: "Charpy_Impact_Tester_Assem.pdf",
+            title: "Full Assembly Drawing",
+            description: "CAD overview of the impact tester assembly, with orthographic and isometric views.",
+            label: "PDF / ASSEMBLY"
+        },
+        {
+            file: "Charpy_Impact_Tester_Base.pdf",
+            title: "Base Assembly Drawing",
+            description: "Dimensioned base and support geometry, including a pivot-hole detail.",
+            label: "PDF / DRAWING"
+        },
+        {
+            file: "Charpy_Impact_Tester_Encoder_Mount.pdf",
+            title: "Encoder Mount Drawing",
+            description: "Dimensioned views of the custom encoder mount and its mounting interfaces.",
+            label: "PDF / DRAWING"
+        },
+        {
+            file: "BOM.pdf",
+            title: "Bill of Materials",
+            description: "Prototype components, quantities, make-or-buy classifications, and recorded costs.",
+            label: "PDF / BILL OF MATERIALS"
+        }
+    ],
+    nastran: [
         {
             file: "nast.pdf",
             title: "Results Comparison",
-            description: "Theoretical calculations compared with NASTRAN results."
+            description: "Theoretical calculations compared with NASTRAN results.",
+            label: "PDF / ANALYSIS"
         },
         {
             file: "NASTRAN%20CBEAM%20Stresses.pdf",
             title: "Beam Stress Report",
-            description: "Detailed beam stress output from the finite element model."
+            description: "Detailed beam stress output from the finite element model.",
+            label: "PDF / ANALYSIS"
         }
-    ];
+    ]
+};
+
+const reports = projectDocuments[projectId] || [];
+if (project && reports.length > 0) {
+    const gallerySection = document.getElementById("gallery-section");
+    const galleryGrid = document.getElementById("project-gallery");
+
+    gallerySection.querySelector("h2").textContent = "Project Gallery & Documents";
 
     reports.forEach(function(report) {
         const card = document.createElement("a");
@@ -801,7 +834,7 @@ if (projectId === "nastran") {
 
         const label = document.createElement("span");
         label.className = "pdf-report-label";
-        label.textContent = "PDF / ANALYSIS";
+        label.textContent = report.label;
 
         const title = document.createElement("h3");
         title.textContent = report.title;
@@ -811,7 +844,7 @@ if (projectId === "nastran") {
 
         const action = document.createElement("span");
         action.className = "pdf-report-action";
-        action.textContent = "View Report ↗";
+        action.textContent = "View PDF ↗";
 
         card.append(label, title, description, action);
         galleryGrid.appendChild(card);
